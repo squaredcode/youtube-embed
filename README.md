@@ -1,2 +1,19 @@
-# youtube-embed
-WordPress plugin for embedding YouTube videos
+# YouTube Embed
+
+**Version 5 is here! Now with API access to further improve the rich metadata but also the output caching has returned to make this plugin the fasted method to embed YouTube videos around!**
+
+YouTube Embed is an incredibly fast, simple, yet powerful, method of embedding YouTube videos into your WordPress site.
+
+Features include...
+
+* Build your own playlists and play them back however you want
+* Automatically generate playlists based on user name or search text
+* Create multiple profiles - use them for different videos to get the exact style that you want
+* Dynamic video sizing for responsive sites
+* Housekept caching keeps the code generation nimble and your database tables slimline
+* Google compatible metadata is added to the video output based on data provided by the YouTube API - great for SEO!
+* Support for Do Not Track
+* Compatible with [Video SEO for WordPress](http://yoast.com/wordpress/video-seo/ "Video SEO for WordPress"), [a3 lazy load](https://wordpress.org/plugins/a3-lazy-load/ "a3 lazy load") and [WordPress Video Overlay Ads](https://wordpress.org/plugins/video-overlay-ads/ "WordPress Video Overlay Ads") and many more. In the case of Video SEO and WordPress Video Overlay Ads, their options will even appear under the YouTube Embed menu for total simplicity!
+* Use [Turn Off The Lights](https://www.turnoffthelights.com/ "Turn Off The Lights")? This plugin works with it beautifully.
+* [iFrame Resizer](https://github.com/davidjbradshaw/iframe-resizer "iFrame Resizer") and [FitVids.js](https://github.com/davatron5000/FitVids.js "FitVids.js") supported to improve content resizing
+* Works "out of the box" with 4K, 60FPS and Chromecast - stream your embedded videos to your TV!
