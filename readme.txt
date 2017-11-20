@@ -2,7 +2,7 @@
 Contributors: dartiss
 Tags: embed, insert, video, youtube
 Requires at least: 4.6
-Tested up to: 4.8.2
+Tested up to: 4.9
 Requires PHP: 5.3
 Stable tag: 5.0.4
 License: GPLv2 or later
@@ -37,7 +37,7 @@ Technical specification...
 * PHP7 compatible
 * Fully internationalized, ready for translations! **If you would like to add a translation to this plugin then please head to our [Translating WordPress](https://translate.wordpress.org/projects/wp-plugins/youtube-embed "Translating WordPress") page**
 
-For the latest known issue and planned enhancements, please see [my Bug Tracker site](https://artiss.uk/bugtracker/index.php?project=2 "Bug Tracker") site.
+Please visit the [Github page](https://github.com/dartiss/youtube-embed "Github") for the latest code development, planned enhancements and known issues.
 
 == Getting Started ==
 
