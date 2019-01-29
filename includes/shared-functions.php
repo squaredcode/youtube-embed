@@ -25,7 +25,7 @@ function ye_extract_id( $id ) {
 	$replacement_from = array( '&#8211;', '&#8212;', '&#215;' );
 	$replacement_to = array( '--', '---', 'x' );
 
-	$id = trim( strip_tags( str_replace( $replacement_from, $replacement_to, $id ) ) );
+	$id = trim( wp_strip_all_tags( str_replace( $replacement_from, $replacement_to, $id ) ) );
 
 	// Check if it's the full URL, as found in address bar
 
@@ -567,4 +567,3 @@ function ye_timer( $checkpoint, $name ) {
 	return microtime( true );
 
 }
-?>

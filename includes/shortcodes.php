@@ -351,4 +351,3 @@ function ye_set_autohide( $autohide ) {
 
 	return $autohide;
 }
-?>

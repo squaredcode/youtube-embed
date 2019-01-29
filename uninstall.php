@@ -56,4 +56,3 @@ delete_option( 'youtube_embed_version' );
 global $wpdb;
 $sql = "DELETE FROM $wpdb->options WHERE option_name LIKE '_transient_youtubeembed_%' OR option_name LIKE '_transient_timeout_youtubeembed_%'";
 $wipe = $wpdb -> query( $sql );
-?>

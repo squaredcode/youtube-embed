@@ -254,4 +254,3 @@ function youtube_embed_shortcode_checks( $source ) {
 
 	update_option( 'youtube_embed_shortcode_' . $source, $shortcode );
 }
-?>

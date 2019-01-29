@@ -161,7 +161,7 @@ function ye_get_api_data( $video_id, $api_key = '', $no_cache = false, $cache_ti
 
 	if ( $options[ 'api_cache' ] != 0 && $id_found ) {
 
-		$cache = $options[ 'api_cache' ] * 60 * 60 * 24;
+		$cache = $options[ 'api_cache' ] * DAY_IN_SECONDS;
 
 		ye_set_transient( $key, $return_data, $cache );
 
@@ -169,4 +169,3 @@ function ye_get_api_data( $video_id, $api_key = '', $no_cache = false, $cache_ti
 
 	return $return_data;
 }
-?>

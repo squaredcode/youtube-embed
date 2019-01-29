@@ -2,9 +2,9 @@
 Contributors: dartiss
 Tags: embed, insert, video, youtube
 Requires at least: 4.6
-Tested up to: 4.9
+Tested up to: 5.0.3
 Requires PHP: 5.3
-Stable tag: 5.0.4
+Stable tag: 5.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,14 +70,13 @@ Which options are available depends upon the users's set-up (for example, whethe
 * **annotation** - yes or no, this determines if annotations are shown
 * **autohide** - 0, 1 or 2, this parameter indicates whether the video controls will automatically hide after a video begins playing. The default behavior, a value of 2, is for the video progress bar to fade out while the player controls (play button, volume control, etc.) remain visible. If this parameter is set to 0, the video progress bar and the video player controls will be visible throughout the video. If this parameter is set to 1, then the video progress bar and the player controls will slide out of view a couple of seconds after the video starts playing. They will only reappear if the user moves her mouse over the video player or presses a key on her keyboard.
 * **autoplay** - yes or no, should the video automatically start playing?
-* **cc** - yes or no, decided whether closed captions (subtitles) are displayed. If you don't specify anything then the user's default will be used.
+* **cc** - yes or no, decided whether closed captions are displayed. If you don't specify anything then the user's default will be used.
 * **color** - white or red, the color of the progress bar (see the FAQ about having a white progress bar with the light theme)
 * **controls** - 0, 1 or 2, this decides whether the controls should display and when the Flash will load. A value of 0 will not show the controls but 1 or 2 will. A value of 2 will load Flash once the user initiates playback - otherwise it's loaded straight away.
 * **disablekb** - yes or no, disable keyboard controls
 * **fullscreen** - yes or no, this will add the fullscreen button to the toolbar
 * **height** - the video height, in pixels
 * **html5** - yes or no, whether to force HTML5 as the default player or not (if available). NB: This is an undocumented feature and, as such, may not work
-* **info** - yes or no, show video information. If displaying a playlist this will show video thumbnails
 * **list** - if you've specified your own list, use this to select the way the videos should be output. Should be `random` (display videos in a random order), `single` (show just one video, randomly picked from the list) or `order` (show each video in the original order - this is the default)
 * **loop** - yes or no, whether to start the video again once it ends
 * **modest** - reduce the branding on the video
@@ -334,6 +333,14 @@ Before reporting it please bear in mind that this plugin uses the standard YouTu
 
 [Learn more about my version numbering methodology](https://artiss.blog/2016/09/wordpress-plugin-versioning/ "WordPress Plugin Versioning") 
 
+= 5.0.5 =
+* Maintenance: The `rel` parameter has changed and the `showinfo` has been deprecated. Have updated the plugin for these changes
+* Maintenance: I've removed the editor button. It doesn't work after WP 5.0 and I don't wish to maintain it
+* Maintenance: I'm now using a time constant when caching
+* Maintenance: Added Github links to plugin meta
+* Maintenance: Using the `checked` function for screen output
+* Maintenance: A minor language tweak, where I was specifying something that should, ideally, be captured by translations instead
+
 = 5.0.4 =
 * Maintenance: Updated this README for better presentation in the new plugin directory. Funky.
 * Maintenance: The minimum requirements for this plugin is now WordPress 4.6 so language files could be got rid of and various other bits of change. Smooth.
@@ -533,5 +540,5 @@ Before reporting it please bear in mind that this plugin uses the standard YouTu
 
 == Upgrade Notice ==
 
-= 5.0.4 =
+= 5.0.5 =
 * Maintenance changes
