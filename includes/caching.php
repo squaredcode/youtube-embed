@@ -96,10 +96,9 @@ function ye_housekeep_transients() {
 		AND b.option_value < UNIX_TIMESTAMP()
 	";
 
-	$clean = $wpdb -> query( $sql );
+	$wpdb -> query( $sql );
 
 	return;
 }
 
 add_action( 'ye_housekeep_transients', 'ye_clean_transients' );
-?>

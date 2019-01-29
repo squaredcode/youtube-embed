@@ -146,4 +146,3 @@ function ye_generate_vinfo_code( $id, $text ) {
 
 	return $output;
 }
-?>

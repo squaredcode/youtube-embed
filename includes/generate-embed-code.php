@@ -31,7 +31,7 @@ function ye_generate_youtube_code( $array )  {
 
 	// Set defaults then merge with passed array. Finally, split array into individual variables
 
-	$default = array( 'id' => '', 'width' => '', 'height' => '', 'fullscreen' => '', 'related' => '', 'autoplay' => '', 'loop' => '', 'start' => '', 'info' => '', 'annotation' => '', 'cc' => '', 'style' => '', 'stop' => '', 'disablekb' => '', 'ratio' => '', 'autohide' => '', 'controls' => '', 'profile' => '', 'list_style' => '', 'template' => '', 'color' => '', 'theme' => '', 'responsive' => '', 'search' => '', 'user' => '', 'modest' => '', 'playsinline' => '', 'html5' => '' );
+	$default = array( 'id' => '', 'width' => '', 'height' => '', 'fullscreen' => '', 'related' => '', 'autoplay' => '', 'loop' => '', 'start' => '', 'annotation' => '', 'cc' => '', 'style' => '', 'stop' => '', 'disablekb' => '', 'ratio' => '', 'autohide' => '', 'controls' => '', 'profile' => '', 'list_style' => '', 'template' => '', 'color' => '', 'theme' => '', 'responsive' => '', 'search' => '', 'user' => '', 'modest' => '', 'playsinline' => '', 'html5' => '' );
 
 	$array = array_merge( $default, $array );
 
@@ -220,7 +220,6 @@ function ye_generate_youtube_code( $array )  {
 	if ( $related == '' ) { $related = $options[ 'related' ]; }
 	if ( $autoplay == '' ) { $autoplay = $options[ 'autoplay' ]; }
 	if ( $loop == '' ) { $loop = $options[ 'loop' ]; }
-	if ( $info == '' ) { $info = $options[ 'info' ]; }
 	if ( $annotation == '' ) { $annotation = $options[ 'annotation' ]; }
 	if ( $cc == '' ) { $cc = $options[ 'cc' ]; }
 	if ( $disablekb == '' ) { $disablekb = $options[ 'disablekb' ]; }
@@ -276,7 +275,6 @@ function ye_generate_youtube_code( $array )  {
 	if ( $related != 1 ) { $paras .= $amp . 'rel=0'; }
 	if ( $autoplay == 1 ) { $paras .= $amp . 'autoplay=1'; }
 	if ( $loop == 1 ) { $paras .= $amp . 'loop=1'; }
-	if ( $info != 1 ) { $paras .= $amp . 'showinfo=0'; }
 	if ( $annotation != 1 ) { $paras .= $amp . 'iv_load_policy=3'; }
 	if ( $cc != '' ) { $paras .= $amp . 'cc_load_policy=' . $cc; }
 	if ( $disablekb == 1 ) { $paras .= $amp . 'disablekb=1'; }
@@ -408,7 +406,7 @@ function ye_generate_youtube_code( $array )  {
 
 	if ( $general[ 'video_cache' ] != 0 && get_the_date() !== false && !$cache_suppress ) {
 
-		$cache = $general[ 'video_cache' ] * 60 * 60;
+		$cache = $general[ 'video_cache' ] * HOURS_IN_SECONDS;
 
 		ye_set_transient( $key, $result, $cache, true );
 
@@ -579,6 +577,7 @@ function ye_do_not_track() {
 function ye_calculate_video_size( $width, $height, $default_width, $default_height, $ratio ) {
 
 	$ratio_to_use = '';
+	$new_sizes = array();
 
 	// If a ratio has been specified by the user, extract it
 
@@ -605,4 +604,3 @@ function ye_calculate_video_size( $width, $height, $default_width, $default_heig
 
 	return $new_sizes;
 }
-?>

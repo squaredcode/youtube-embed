@@ -206,4 +206,3 @@ function youtube_embed_register_widgets() {
 	register_widget( 'YouTubeEmbedWidget' );
 }
 add_action( 'widgets_init', 'youtube_embed_register_widgets' );
-?>

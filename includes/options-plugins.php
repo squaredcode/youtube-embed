@@ -72,8 +72,8 @@ function ye_plugin_status( $plugin_name, $title, $description, $id, $code_name =
 	$status = ye_check_plugin( $plugin_name, $code_name );
 
 	echo '<tr><th scope="row"><label for="ye_plugins_' . $id . '">' . $title . '</th>';
-	echo '<td><input disabled="disabled" type="checkbox" name="ye_plugins_' . $id . '" value="1"';
-	if ( $status == 2) { echo ' checked="checked"'; }
+	echo '<td><input disabled="disabled" type="checkbox" name="ye_plugins_' . $id . '" value="1" ';
+	checked( $status, 2 );
 	echo '/>';
 
 	if ( $status == 0 ) {
@@ -125,4 +125,3 @@ function ye_check_plugin( $plugin_dir, $plugin_name = '' ) {
 	}
 	return $status;
 }
-?>

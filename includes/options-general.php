@@ -116,7 +116,7 @@ $shortcode = ye_get_shortcode();
 
 <tr>
 <th scope="row"><label for="youtube_embed_metadata"><?php _e( 'Add Metadata', 'youtube-embed' ); ?></label></th>
-<td><input type="checkbox" name="youtube_embed_metadata" value="1"<?php if ( $options[ 'metadata' ] == "1" ) { echo ' checked="checked"'; } ?>/>
+<td><input type="checkbox" name="youtube_embed_metadata" value="1" <?php checked( $options[ 'metadata' ], "1" ); ?>/>
 <?php _e( 'Allow rich metadata to be added to code', 'youtube-embed' ); ?></td>
 </tr>
 
@@ -164,7 +164,7 @@ $shortcode = ye_get_shortcode();
 
 <tr>
 <th scope="row"><?php _e( 'Allow shortcodes in widgets', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_widgets"><input type="checkbox" name="youtube_embed_widgets" value="1"<?php if ( $options[ 'widgets' ] == "1" ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_widgets"><input type="checkbox" name="youtube_embed_widgets" value="1" <?php checked( $options[ 'widgets' ], "1" ); ?>/>
 <?php _e( 'Allow shortcodes to be used in widgets', 'youtube-embed' ); ?></label>
 <p class="description"><?php _e( 'This will apply to <strong>all</strong> widgets.', 'youtube-embed' ); ?></p></td>
 </tr>
@@ -190,7 +190,7 @@ $shortcode = ye_get_shortcode();
 
 <tr>
 <th scope="row"><?php _e( 'Show Shortcode Re-use Prompt', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_prompt"><input type="checkbox" name="youtube_embed_prompt" value="1"<?php if ( $options[ 'prompt' ] == "1" ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_prompt"><input type="checkbox" name="youtube_embed_prompt" value="1" <?php checked( $options[ 'prompt' ], "1" ); ?>/>
 <?php _e( 'Show a prompt if the main shortcode is being re-used by another plugin', 'youtube-embed' ); ?></label></td>
 </tr>
 
@@ -200,7 +200,7 @@ $shortcode = ye_get_shortcode();
 
 <tr>
 <th scope="row"><?php _e( 'Show Editor Button', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_editor_button"><input type="checkbox" name="youtube_embed_editor_button" value="1"<?php if ( $options[ 'editor_button' ] == "1" ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_editor_button"><input type="checkbox" name="youtube_embed_editor_button" value="1" <?php checked( $options[ 'editor_button' ], "1" ); ?>/>
 <?php _e( 'Show the YouTube button on the post editor', 'youtube-embed' ); ?></label></td>
 </tr>
 
@@ -208,7 +208,7 @@ $shortcode = ye_get_shortcode();
 
 <tr>
 <th scope="row"><?php _e( 'Show Editor Button', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_admin_bar"><input type="checkbox" name="youtube_embed_admin_bar" value="1"<?php if ( $options[ 'admin_bar' ] == "1" ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_admin_bar"><input type="checkbox" name="youtube_embed_admin_bar" value="1" <?php checked( $options[ 'admin_bar' ], "1" ); ?>/>
 <?php _e( 'Add link to options screen to Admin Bar', 'youtube-embed' ); ?></label></td>
 </tr>
 
@@ -248,7 +248,7 @@ $shortcode = ye_get_shortcode();
 
 <tr>
 <th scope="row"><?php _e( 'Force list specification', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_list"><input type="checkbox" name="youtube_embed_list" value="1"<?php if ( $options[ 'force_list_type' ] == '1' ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_list"><input type="checkbox" name="youtube_embed_list" value="1" <?php checked( $options[ 'force_list_type' ], "1" ); ?>/>
 <?php _e( 'Force users to specify a list type', 'youtube-embed' ); ?></label>
 <p class="description"><?php _e( 'By switching this on, a list type must be specified for a list to be valid. This improves performance as use of a list doesn\'t then need to be verified.', 'youtube-embed' ); ?></p></td>
 </tr>
@@ -287,7 +287,7 @@ $shortcode = ye_get_shortcode();
 
 <tr>
 <th scope="row"><?php _e( 'Show debug output', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_debug"><input type="checkbox" name="youtube_embed_debug" value="1"<?php if ( $options[ 'debug' ] == "1" ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_debug"><input type="checkbox" name="youtube_embed_debug" value="1" <?php checked( $options[ 'debug' ], "1" ); ?>/>
 <?php _e( 'Show debug output as HTML comments', 'youtube-embed' ); ?></label></td>
 </tr>
 
@@ -297,7 +297,7 @@ $shortcode = ye_get_shortcode();
 
 <tr>
 <th scope="row"><?php _e( 'Improve Validation', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_frameborder"><input type="checkbox" name="youtube_embed_frameborder" value="1"<?php if ( $options[ 'frameborder' ] == '1' ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_frameborder"><input type="checkbox" name="youtube_embed_frameborder" value="1" <?php checked( $options[ 'frameborder' ], "1" ); ?>/>
 <?php _e( 'Improve the validity of the generated markup', 'youtube-embed' ); ?></label>
 <p class="description"><?php _e( 'Will extend the length of the URL, limiting the number of videos in a manual playlist. Switch off metadata for even better validation results.', 'youtube-embed' ); ?></p></td>
 </tr>

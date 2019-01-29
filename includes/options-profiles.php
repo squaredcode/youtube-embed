@@ -8,7 +8,7 @@
 * @since	2.0
 */
 
-$demo_video = 'EYs_FckMqow';
+$demo_video = 'X20GdsIUGKM';
 
 // Set current profile number
 
@@ -73,7 +73,6 @@ if ( ( !empty( $_POST[ 'Submit' ] ) ) && ( check_admin_referer( 'youtube-embed-p
 	if ( isset( $_POST[ 'youtube_embed_cc' ] ) ) { $options[ 'cc'] = sanitize_text_field( $_POST[ 'youtube_embed_cc' ] ); } else { $options[ 'cc' ] = ''; }
 	if ( isset( $_POST[ 'youtube_embed_annotation' ] ) ) { $options[ 'annotation'] = sanitize_text_field( $_POST[ 'youtube_embed_annotation' ] ); } else { $options[ 'annotation' ] = ''; }
 	if ( isset( $_POST[ 'youtube_embed_related' ] ) ) { $options[ 'related'] = sanitize_text_field( $_POST[ 'youtube_embed_related' ] ); } else { $options[ 'related' ] = ''; }
-	if ( isset( $_POST[ 'youtube_embed_info' ] ) ) { $options[ 'info'] = sanitize_text_field( $_POST[ 'youtube_embed_info' ] ); } else { $options[ 'info' ] = ''; }
 	if ( isset( $_POST[ 'youtube_embed_disablekb' ] ) ) { $options[ 'disablekb'] = sanitize_text_field( $_POST[ 'youtube_embed_disablekb' ] ); } else { $options[ 'disablekb' ] = ''; }
 	if ( isset( $_POST[ 'youtube_embed_html5' ] ) ) { $options[ 'html5'] = sanitize_text_field( $_POST[ 'youtube_embed_html5' ] ); } else { $options[ 'html5' ] = ''; }
 	if ( isset( $_POST[ 'youtube_embed_modest' ] ) ) { $options[ 'modest' ] = sanitize_text_field( $_POST[ 'youtube_embed_modest' ] ); } else { $options[ 'modest' ] = ''; }
@@ -240,7 +239,7 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 
 <tr>
 <th scope="row"><?php _e( 'Responsive Output', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_dynamic"><input type="checkbox" name="youtube_embed_dynamic" value="1"<?php if ( $options[ 'dynamic' ] == "1" ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_dynamic"><input type="checkbox" name="youtube_embed_dynamic" value="1" <?php checked( $options[ 'dynamic' ], "1" ); ?>/>
 <?php _e( 'Show full width and resize with the browser', 'youtube-embed' ); ?></label></td>
 </tr>
 
@@ -248,7 +247,7 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 
 <tr>
 <th scope="row">&nbsp;&nbsp;&nbsp;&nbsp;<?php _e( 'Set Maximum Size', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_fixed"><input type="checkbox" name="youtube_embed_fixed" value="1"<?php if ( $options[ 'fixed' ] == "1" ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_fixed"><input type="checkbox" name="youtube_embed_fixed" value="1" <?php checked( $options[ 'fixed' ], "1" ); ?>/>
 <?php _e( 'Use above width to define maximum size', 'youtube-embed' ); ?></label></td>
 </tr>
 
@@ -257,7 +256,7 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 <tr>
 <th scope="row"><?php _e( 'Plays Inline', 'youtube-embed' ); ?>&nbsp;<img src="<?php echo plugins_url( 'images/html5.png', dirname(__FILE__) ); ?>" alt="<?php _e( 'HTML5', 'youtube-embed' ) ?>" width="10px" align="top"></th>
 
-<td><label for="youtube_embed_playsinline"><input type="checkbox" name="youtube_embed_playsinline" value="1"<?php if ( $options[ 'playsinline' ] == "1" ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_playsinline"><input type="checkbox" name="youtube_embed_playsinline" value="1" <?php checked( $options[ 'playsinline' ], "1" ); ?>/>
 <?php _e( 'Whether videos play inline or fullscreen in an HTML5 player on iOS. ', 'youtube-embed' ); ?></label></td>
 </tr>
 
@@ -267,7 +266,7 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 
 <tr>
 <th scope="row"><?php _e( 'Autoplay', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_autoplay"><input type="checkbox" name="youtube_embed_autoplay" value="1"<?php if ( $options[ 'autoplay' ] == "1" ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_autoplay"><input type="checkbox" name="youtube_embed_autoplay" value="1" <?php checked( $options[ 'autoplay' ], "1" ); ?>/>
 <?php _e( 'Choose whether the initial video will automatically start to play when the player loads', 'youtube-embed' ); ?></label></td>
 </tr>
 
@@ -275,7 +274,7 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 
 <tr>
 <th scope="row"><?php _e( 'Loop Video', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_loop"><input type="checkbox" name="youtube_embed_loop" value="1"<?php if ( $options[ 'loop' ] == "1" ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_loop"><input type="checkbox" name="youtube_embed_loop" value="1" <?php checked( $options[ 'loop' ], "1" ); ?>/>
 <?php _e( 'Play the initial video again and again', 'youtube-embed' ); ?></label>
 <p class="description"><?php _e( 'In the case of a playlist, this will play the entire playlist and then start again at the first video.', 'youtube-embed' ); ?></p></td>
 </tr>
@@ -284,7 +283,7 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 
 <tr>
 <th scope="row"><?php _e( 'Annotations', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_annotation"><input type="checkbox" name="youtube_embed_annotation" value="1"<?php if ( $options[ 'annotation' ] == "1" ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_annotation"><input type="checkbox" name="youtube_embed_annotation" value="1" <?php checked( $options[ 'annotation' ], "1" ); ?>/>
 <?php _e( 'Video annotations are shown by default', 'youtube-embed' ); ?></label></td>
 </tr>
 
@@ -297,43 +296,35 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 <option value="1"<?php if ( $options[ 'cc' ] == "1" ) { echo " selected='selected'"; } ?>><?php _e( 'Show closed captions', 'youtube-embed' ); ?></option>
 <option value=""<?php if ( $options[ 'cc' ] == "" ) { echo " selected='selected'"; } ?>><?php _e( 'User default', 'youtube-embed' ); ?></option>
 </select></label>
-<p class="description"><?php _e( 'Show closed captions (subtitles).', 'youtube-embed' ); ?></p></td>
+<p class="description"><?php _e( 'Show closed captions.', 'youtube-embed' ); ?></p></td>
 </tr>
 
 <!-- HTML5 -->
 
 <tr>
 <th scope="row"><?php _e( 'Default to HTML5', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_html5"><input type="checkbox" name="youtube_embed_html5" value="1"<?php if ( $options[ 'html5' ] == "1" ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_html5"><input type="checkbox" name="youtube_embed_html5" value="1" <?php checked( $options[ 'html5' ], "1" ); ?>/>
 <?php _e( 'Default to the HTML5 player (if available)', 'youtube-embed' ); ?></label>
 <p class="description"><?php _e( 'This is an undocumented feature and may not work.', 'youtube-embed' ); ?></p></td>
 </tr>
 
 </table><hr><h3 class="title"><?php _e( 'Information', 'youtube-embed' ); ?></h3><table class="form-table">
 
-<!-- Info -->
-
-<tr>
-<th scope="row"><?php _e( 'Information', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_info"><input type="checkbox" name="youtube_embed_info" value="1"<?php if ( $options[ 'info' ] == "1" ) { echo ' checked="checked"'; } ?>/>
-<?php _e( 'Display the video title and uploader before the video starts', 'youtube-embed' ); ?></label>
-<p class="description"><?php _e( 'If displaying a playlist this will show video thumbnails.', 'youtube-embed' ); ?></p></td>
-</tr>
-
 <!-- Related -->
 
 <tr>
 <th scope="row"><?php _e( 'Related Videos', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_related"><input type="checkbox" name="youtube_embed_related" value="1"<?php if ( $options[ 'related' ] == "1" ) { echo ' checked="checked"'; } ?>/>
-<?php _e( 'Load related videos once playback starts', 'youtube-embed' ); ?></label>
-<p class="description"><?php _e( 'Also toggles the search option.', 'youtube-embed' ); ?></p></td>
+<td><label for="youtube_embed_related"><select name="youtube_embed_related">
+<option value="0"<?php if ( $options[ 'related' ] == "0" ) { echo " selected='selected'"; } ?>><?php _e( 'Show from the same channel', 'youtube-embed' ); ?></option>
+<option value="1"<?php if ( $options[ 'related' ] == "1" ) { echo " selected='selected'"; } ?>><?php _e( 'Show related videos from any channel', 'youtube-embed' ); ?></option></label>
+<p class="description"><?php _e( 'Defines where related videos are fetched from.', 'youtube-embed' ); ?></p></td>
 </tr>
 
 <!-- Modest Branding -->
 
 <tr>
 <th scope="row"><?php _e( 'Modest Branding', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_modest"><input type="checkbox" name="youtube_embed_modest" value="1"<?php if ( $options[ 'modest' ] == "1" ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_modest"><input type="checkbox" name="youtube_embed_modest" value="1" <?php checked( $options[ 'modest' ], "1" ); ?>/>
 <?php _e( 'Reduce branding on video', 'youtube-embed' ); ?></label></td>
 </tr>
 
@@ -367,7 +358,7 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 
 <tr>
 <th scope="row"><?php _e( 'Disable Keyboard', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_disablekb"><input type="checkbox" name="youtube_embed_disablekb" value="1"<?php if ( $options[ 'disablekb' ] == "1" ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_disablekb"><input type="checkbox" name="youtube_embed_disablekb" value="1" <?php checked( $options[ 'disablekb' ], "1" ); ?>/>
 <?php _e( 'Disable the player keyboard controls', 'youtube-embed' ); ?></label></td>
 </tr>
 
@@ -375,7 +366,7 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 
 <tr>
 <th scope="row"><?php _e( 'Fullscreen', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_fullscreen"><input type="checkbox" name="youtube_embed_fullscreen" value="1"<?php if ( $options[ 'fullscreen' ] == "1" ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_fullscreen"><input type="checkbox" name="youtube_embed_fullscreen" value="1" <?php checked( $options[ 'fullscreen' ], "1" ); ?>/>
 <?php _e( 'A button will allow the viewer to watch the video fullscreen', 'youtube-embed' ); ?></label></td>
 </tr>
 
@@ -407,7 +398,7 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 
 <tr>
 <th scope="row"><?php _e( 'Show Download Link', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_download"><input type="checkbox" name="youtube_embed_download" value="1"<?php if ( $options[ 'download' ] == "1" ) { echo ' checked="checked"'; } ?>/>
+<td><label for="youtube_embed_download"><input type="checkbox" name="youtube_embed_download" value="1" <?php checked( $options[ 'download' ], "1" ); ?>/>
 <?php echo sprintf( __( 'Show a link to %s under the video', 'youtube-embed' ), '<a href="http://keepvid.com/" rel="nofollow">KeepVid</a>' ); ?></label></td>
 </tr>
 
@@ -415,7 +406,7 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 
 <tr>
 <th scope="row"><?php _e( 'Download Text', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_download_txt"><input type="text" name="youtube_embed_download_text" class="large-text" value="<?php echo esc_html( $options[ 'download_text' ] ); ?>"/>
+<td><label for="youtube_embed_download_txt"><input type="text" name="youtube_embed_download_text" class="large-text" value="<?php echo esc_attr( $options[ 'download_text' ] ); ?>"/>
 <p class="description"><?php _e( 'Text or HTML to display to prompt download.', 'youtube-embed' ); ?></p></label></td>
 </tr>
 
@@ -423,7 +414,7 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 
 <tr>
 <th scope="row"><?php _e( 'Download Style', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_download_style"><input type="text" name="youtube_embed_download_style" class="large-text code" value="<?php echo esc_html( $options[ 'download_style' ] ); ?>"/>
+<td><label for="youtube_embed_download_style"><input type="text" name="youtube_embed_download_style" class="large-text code" value="<?php echo esc_attr( $options[ 'download_style' ] ); ?>"/>
 <p class="description"><?php _e( 'CSS elements to apply to video download link.', 'youtube-embed' ); ?></p></label></td>
 </tr>
 

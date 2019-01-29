@@ -49,7 +49,13 @@ add_filter( 'plugin_action_links', 'ye_add_settings_link', 10, 2 );
 
 function ye_set_plugin_meta( $links, $file ) {
 
-	if ( strpos( $file, 'youtube-embed.php' ) !== false ) { $links = array_merge( $links, array( '<a href="https://wordpress.org/support/plugin/youtube-embed">' . __( 'Support', 'youtube-embed' ) . '</a>' ) ); }
+	if ( strpos( $file, 'youtube-embed.php' ) !== false ) {
+
+		$links = array_merge( $links, array( '<a href="https://github.com/dartiss/youtube-embed">' . __( 'Github', 'youtube-embed' ) . '</a>' ) );		
+
+		$links = array_merge( $links, array( '<a href="https://wordpress.org/support/plugin/youtube-embed">' . __( 'Support', 'youtube-embed' ) . '</a>' ) );
+
+	}
 
 	return $links;
 }
@@ -367,42 +373,6 @@ function youtube_embed_button() {
 add_action( 'admin_init', 'youtube_embed_button' );
 
 /**
-* Register new TinyMCE button
-*
-* Register details of new TinyMCE button
-*
-* @since	2.0
-*
-* @param	string	$buttons	TinyMCE button data
-* @return	string				TinyMCE button data, but with new YouTube button added
-*/
-
-function register_youtube_embed_button( $buttons ) {
-
-	array_push( $buttons, 'mce4_youtube_button' );
-
-	return $buttons;
-}
-
-/**
-* Register TinyMCE Script
-*
-* Register JavaScript that will be actioned when the new TinyMCE button is used
-*
-* @since	2.0
-*
-* @param	string	$plugin_array	Array of MCE plugin data
-* @return	string					Array of MCE plugin data, now with URL of MCE script
-*/
-
-function add_youtube_embed_mce_plugin( $plugin_array ) {
-
-	$plugin_array[ 'mce4_youtube_button' ] = plugins_url( 'js/mce4-button.min.js', dirname(__FILE__) );
-
-	return $plugin_array;
-}
-
-/**
 * Show Admin Messages
 *
 * Display messages on the administration screen
@@ -444,4 +414,3 @@ function youtube_embed_admin_messages() {
 }
 
 add_action( 'admin_notices', 'youtube_embed_admin_messages' );
-?>
