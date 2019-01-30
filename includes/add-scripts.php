@@ -84,7 +84,7 @@ add_action( 'wp_enqueue_scripts', 'ye_main_scripts' );
 
 function ye_admin_css() {
 
-	wp_enqueue_style( 'tinymce_button', plugins_url( 'css/admin.min.css', dirname(__FILE__) ));
+	wp_enqueue_style( 'dynamic_video', plugins_url( 'css/admin.min.css', dirname(__FILE__) ));
 
 }
 

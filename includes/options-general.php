@@ -30,7 +30,6 @@ if ( ( !empty( $_POST ) ) && ( check_admin_referer( 'youtube-embed-general', 'yo
 
 	// Update options
 
-	if ( isset( $_POST[ 'youtube_embed_editor_button' ] ) ) { $options[ 'editor_button' ] = sanitize_text_field( $_POST[ 'youtube_embed_editor_button' ] ); } else { $options[ 'editor_button' ] = ''; }
 	if ( isset( $_POST[ 'youtube_embed_admin_bar' ] ) ) { $options[ 'admin_bar' ] = sanitize_text_field( $_POST[ 'youtube_embed_admin_bar' ] ); } else { $options[ 'admin_bar' ] = ''; }
 
 	$options[ 'profile_no' ] = sanitize_text_field( $_POST[ 'youtube_embed_profile_no' ] );
@@ -196,18 +195,10 @@ $shortcode = ye_get_shortcode();
 
 </table><hr><h3 class="title"><?php _e( 'Administration Options', 'youtube-embed' ); ?></h3><table class="form-table">
 
-<!-- Editor Button -->
-
-<tr>
-<th scope="row"><?php _e( 'Show Editor Button', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_editor_button"><input type="checkbox" name="youtube_embed_editor_button" value="1" <?php checked( $options[ 'editor_button' ], "1" ); ?>/>
-<?php _e( 'Show the YouTube button on the post editor', 'youtube-embed' ); ?></label></td>
-</tr>
-
 <!-- Admin Bar -->
 
 <tr>
-<th scope="row"><?php _e( 'Show Editor Button', 'youtube-embed' ); ?></th>
+<th scope="row"><?php _e( 'Show in Admin Bar', 'youtube-embed' ); ?></th>
 <td><label for="youtube_embed_admin_bar"><input type="checkbox" name="youtube_embed_admin_bar" value="1" <?php checked( $options[ 'admin_bar' ], "1" ); ?>/>
 <?php _e( 'Add link to options screen to Admin Bar', 'youtube-embed' ); ?></label></td>
 </tr>

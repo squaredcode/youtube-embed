@@ -1,19 +1,4 @@
 
-/* Add extra dashicons for MCE4 editor */
-
-i.mce-i-icon {
-	font: 400 20px/1 dashicons;
-	padding: 0;
-	vertical-align: top;
-	speak: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	margin-left: -2px;
-	padding-right: 2px
-}
-
-/* Video dynamic resizing */
-
 .ye-container {
 	position: relative;
 	padding-bottom: 56.25%;

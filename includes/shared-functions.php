@@ -255,7 +255,6 @@ function ye_set_general_defaults() {
 	// Because of upgrading, check each option - if not set, apply default
 
 	$default_array = array(
-						   'editor_button' => 1,
 						   'admin_bar' => 1,
 						   'profile_no' => 5,
 						   'list_no' => 5,
