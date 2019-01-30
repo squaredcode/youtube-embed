@@ -344,35 +344,6 @@ function youtube_embed_help( $screen, $tab = 'help' ) {
 }
 
 /**
-* Set up TinyMCE button
-*
-* Add filters (assuming user is editing) for TinyMCE
-*
-* @uses     ye_get_general_defaults    Set default options
-*
-* @since 	2.0
-*/
-
-function youtube_embed_button() {
-
-	// Ensure user is in rich editor and button option is switched on
-
-	if ( get_user_option( 'rich_editing' ) == 'true' ) {
-
-		$options = ye_get_general_defaults();
-		if ( $options[ 'editor_button' ] != '' ) {
-
-			// Add filters
-
-			add_filter( 'mce_external_plugins', 'add_youtube_embed_mce_plugin' );
-			add_filter( 'mce_buttons', 'register_youtube_embed_button' );
-		}
-	}
-}
-
-add_action( 'admin_init', 'youtube_embed_button' );
-
-/**
 * Show Admin Messages
 *
 * Display messages on the administration screen

@@ -4,7 +4,7 @@ Tags: embed, insert, video, youtube
 Requires at least: 4.6
 Tested up to: 5.0.3
 Requires PHP: 5.3
-Stable tag: 5.0.5
+Stable tag: 5.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -333,6 +333,10 @@ Before reporting it please bear in mind that this plugin uses the standard YouTu
 
 [Learn more about my version numbering methodology](https://artiss.blog/2016/09/wordpress-plugin-versioning/ "WordPress Plugin Versioning") 
 
+= 5.0.6 =
+* Bug: It would appear that some of the code for the editor button was still lurking in dark corners of the plugin. That's caused those not rocking Gutenberg to see errors or, worst still, the dreaded "white screen of death". Apologies. I've now hoovered out all of the muck
+* Bug: Whilst fixing the above, I noticed the title of one of the settings was wrong, so I've fixed that oo
+
 = 5.0.5 =
 * Maintenance: The `rel` parameter has changed and the `showinfo` has been deprecated. Have updated the plugin for these changes
 * Maintenance: I've removed the editor button. It doesn't work after WP 5.0 and I don't wish to maintain it
@@ -540,5 +544,5 @@ Before reporting it please bear in mind that this plugin uses the standard YouTu
 
 == Upgrade Notice ==
 
-= 5.0.5 =
-* Maintenance changes
+= 5.0.6 =
+* Bug fix
