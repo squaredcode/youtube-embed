@@ -39,8 +39,6 @@ Technical specification...
 
 Please visit the [Github page](https://github.com/dartiss/youtube-embed "Github") for the latest code development, planned enhancements and known issues.
 
-Icons made by [Freepik](https://www.flaticon.com/authors/freepik "Freepik") from [www.flaticon.co](https://www.flaticon.com/ "Flaticon") is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0 "Creative Commons BY 3.0").
-
 == Getting Started ==
 
 How easy is it to use? The fine people at [Webucator](https://www.webucator.com "Webucator") have put together an excellent video showing you how to get started with it..
