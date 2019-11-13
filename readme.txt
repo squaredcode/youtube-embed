@@ -2,7 +2,7 @@
 Contributors: dartiss
 Tags: embed, insert, video, youtube
 Requires at least: 4.6
-Tested up to: 5.2.2
+Tested up to: 5.3
 Requires PHP: 5.3
 Stable tag: 5.0.6
 License: GPLv2 or later
