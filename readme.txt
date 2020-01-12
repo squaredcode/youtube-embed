@@ -537,5 +537,5 @@ Before reporting it please bear in mind that this plugin uses the standard YouTu
 
 == Upgrade Notice ==
 
-= 5.0.6 =
-* Bug fix
+= 5.1 =
+* Enhancements and bug fixes
