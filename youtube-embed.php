@@ -3,7 +3,7 @@
 Plugin Name: YouTube Embed
 Plugin URI: https://github.com/dartiss/youtube-embed
 Description: An incredibly fast, simple, yet powerful, method of embedding YouTube videos into your WordPress site.
-Version: 5.0.6
+Version: 5.1
 Author: dartiss
 Author URI: https://artiss.blog
 Text Domain: youtube-embed
@@ -18,7 +18,7 @@ Text Domain: youtube-embed
 * @since	2.0
 */
 
-define( 'youtube_embed_version', '5.0.6' );
+define( 'youtube_embed_version', '5.1' );
 
 $functions_dir = plugin_dir_path( __FILE__ ) . 'includes/';
 

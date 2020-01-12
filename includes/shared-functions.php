@@ -266,14 +266,15 @@ function ye_set_general_defaults() {
 						   'frameborder' => 1,
 						   'widgets' => 0,
 						   'menu_access' => 'list_users',
-						   'language' => '',
 						   'debug' => 1,
 						   'script' => '',
 						   'prompt' => 1,
 						   'force_list_type' => 0,
 						   'api' => '',
 						   'api_cache' => 7,
-						   'video_cache' => 24
+						   'video_cache' => 24,
+						   'standard_video' => 'RxAtuMu_ph4',
+						   'playlist_video' => '1DD10E84B9B08A35'
 						   );
 
 	// If a new user switch the list option on. Otherwise, an existing user will default to off
@@ -421,17 +422,15 @@ function ye_set_profile_defaults( $profile ) {
 					'start' => 0,
 					'loop' => '',
 					'cc' => '',
+					'cc_lang' => '',
 					'annotation' => 1,
 					'related' => 1,
 					'info' => 1,
 					'stop' => 0,
 					'disablekb' => '',
-					'autohide' => 2,
 					'controls' => 1,
-					'wmode' => 'window',
 					'style' => '',
 					'color' => 'red',
-					'theme' => 'dark',
 					'modest' => '',
 					'dynamic' => '',
 					'fixed' => '',
@@ -439,7 +438,7 @@ function ye_set_profile_defaults( $profile ) {
 					'download_style' => '',
 					'download_text' => 'Click here to download the video',
 					'playsinline' => '',
-					'html5' => ''
+					'language' => ''
 					);
 
 	return $default;

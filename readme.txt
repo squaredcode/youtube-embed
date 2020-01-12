@@ -1,18 +1,17 @@
 === YouTube Embed ===
 Contributors: dartiss
+Donate link: https://artiss.blog/donate
 Tags: embed, insert, video, youtube
 Requires at least: 4.6
 Tested up to: 5.3
 Requires PHP: 5.3
-Stable tag: 5.0.6
+Stable tag: 5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 An incredibly fast, simple, yet powerful, method of embedding YouTube videos into your WordPress site.
 
 == Description ==
-
-**Version 5 is here! Now with API access to further improve the rich metadata but also the output caching has returned to make this plugin the fasted method to embed YouTube videos around!**
 
 YouTube Embed is an incredibly fast, simple, yet powerful, method of embedding YouTube videos into your WordPress site.
 
@@ -31,15 +30,9 @@ Key features include...
 * Works "out of the box" with 4K, 60FPS and Chromecast - stream your embedded videos to your TV!
 * And much, much more!
 
-Technical specification...
-
-* Designed for both single and multi-site installations
-* PHP7 compatible
-* Fully internationalized, ready for translations! **If you would like to add a translation to this plugin then please head to our [Translating WordPress](https://translate.wordpress.org/projects/wp-plugins/youtube-embed "Translating WordPress") page**
-
 Please visit the [Github page](https://github.com/dartiss/youtube-embed "Github") for the latest code development, planned enhancements and known issues.
 
-== Getting Started ==
+== 🚦 Getting Started ==
 
 How easy is it to use? The fine people at [Webucator](https://www.webucator.com "Webucator") have put together an excellent video showing you how to get started with it..
 
@@ -53,7 +46,7 @@ Within the administration area, click on the YouTube Embed menu option and then 
 
 Although this document contains a lot of information more is provided on the various administration pages. Whilst on the administration pages, click on the "Help" button in the top right for some useful tips and links. If anything isn't covered and you're unsure of what it does please ask [on the forum](https://wordpress.org/support/plugin/youtube-embed "WordPress Plugins Forum").
 
-== Creating an API Key ==
+== 🔑 Creating an API Key ==
 
 At the top of the `General Settings` administration screen is an option to specify an API key. This is optional but many of the features of this plugin - including accurate video information being added to the metadata - will not be available without it. Thankfully an API key is easy to get and is free.
 
@@ -68,15 +61,15 @@ e.g. `[[youtube width=300 height=200]Z_sCoHGIpU0[/youtube]]`
 Which options are available depends upon the users's set-up (for example, whether they have Flash installed or not). You can specify any of the parameters but they may be ignored. Please see the Profile screen in Administration for further details on any restrictions which may exist.
 
 * **annotation** - yes or no, this determines if annotations are shown
-* **autohide** - 0, 1 or 2, this parameter indicates whether the video controls will automatically hide after a video begins playing. The default behavior, a value of 2, is for the video progress bar to fade out while the player controls (play button, volume control, etc.) remain visible. If this parameter is set to 0, the video progress bar and the video player controls will be visible throughout the video. If this parameter is set to 1, then the video progress bar and the player controls will slide out of view a couple of seconds after the video starts playing. They will only reappear if the user moves her mouse over the video player or presses a key on her keyboard.
 * **autoplay** - yes or no, should the video automatically start playing?
 * **cc** - yes or no, decided whether closed captions are displayed. If you don't specify anything then the user's default will be used.
+* **cc_lang** - Closed captions language. Select a [ISO 639-1 two-letter language code](http://www.loc.gov/standards/iso639-2/php/code_list.php") or leave blank for the default
 * **color** - white or red, the color of the progress bar (see the FAQ about having a white progress bar with the light theme)
 * **controls** - 0, 1 or 2, this decides whether the controls should display and when the Flash will load. A value of 0 will not show the controls but 1 or 2 will. A value of 2 will load Flash once the user initiates playback - otherwise it's loaded straight away.
 * **disablekb** - yes or no, disable keyboard controls
 * **fullscreen** - yes or no, this will add the fullscreen button to the toolbar
 * **height** - the video height, in pixels
-* **html5** - yes or no, whether to force HTML5 as the default player or not (if available). NB: This is an undocumented feature and, as such, may not work
+* **language** - The interface language. The parameter value is an [ISO 639-1 two-letter language code](http://www.loc.gov/standards/iso639-2/php/code_list.php") or a fully specified locale. Leave blank for the default
 * **list** - if you've specified your own list, use this to select the way the videos should be output. Should be `random` (display videos in a random order), `single` (show just one video, randomly picked from the list) or `order` (show each video in the original order - this is the default)
 * **loop** - yes or no, whether to start the video again once it ends
 * **modest** - reduce the branding on the video
@@ -90,7 +83,6 @@ Which options are available depends upon the users's set-up (for example, whethe
 * **stop** - this stops the video at a specific time, given in seconds
 * **style** - apply CSS elements directly to the video output
 * **template** - specify a template (see section on Templates for further details)
-* **theme** - dark or light, display player controls (like a 'play' button or volume control) within a dark or light control bar
 * **user** - yes or no, create a playlist based on a user's uploads. The search word should be specified instead of a video ID. See "Automatically Generate Playlists" option for more details
 * **width** - the video width, in pixels
 
@@ -143,7 +135,7 @@ This could be useful, for instance, for having a separate profile for different 
 
 By default you have 5 extra profiles - if you wish to have more (or less) this number can be changed from the YouTube Embed settings screen.
 
-== Lists ==
+== 📝 Lists ==
 
 Although this plugin will play standard YouTube playlists their playback options are limited. Instead you can create your own video lists. Under the YouTube Embed administration menu is a sub-menu named Lists. Select this and you will be shown a screen where you can type in a list of video IDs (or URLS). You can also provide a name for the list.
 
@@ -165,13 +157,13 @@ YouTube includes options to automatically generate playlists based upon a user n
 
 To use, simply use the `user` or `search` parameter to switch the appropriate option on. Then, instead of a video ID or URL, you should specify either the user name or search word(s).
 
-== Third Party Resizing Scripts ==
+== 📏 Third Party Resizing Scripts ==
 
 Within the YouTube Embed settings screen there is an option to set a third party resizing script - either [iFrame Resizer](https://github.com/davidjbradshaw/iframe-resizer "iFrame Resizer") or [FitVids.js](https://github.com/davatron5000/FitVids.js "FitVids.js"). These work alongside the existing IFRAME but try and improve the output, particularly with regard to how the output is sized.
 
 There are no guarantees with these and no support of their specific functionality is provided. However, if the video output is wrong then it's worth trying these.
 
-== Thumbnails ==
+== 🏙 Thumbnails ==
 
 YouTube Embed also has the ability to return a thumbnail of a video (sorry, this doesn't work with playlists).
 
@@ -192,11 +184,11 @@ e.g. `[youtube_thumb target="_blank" alt="Demo video"]id[/youtube_thumb]`
 
 This overrides the `TARGET` and `ALT` elements of the thumbnail.
 
-== Shortened URL ==
+== 🗜 Shortened URL ==
 
 You may return a short URL for any YouTube video by simply inserting `[youtube_url id=xx]` anywhere within a post. `xx` is the ID of the video.
 
-== Downloading Videos ==
+== ⬇️ Downloading Videos ==
 
 If you wish your users to be able to download a YouTube video or playlist then you can do this automatically.
 
@@ -208,7 +200,7 @@ In the Profiles screen within administration there is an option to automatically
 
 e.g. `[download_video id="Z_sCoHGIpU0" target="_blank"]Download the video[/download_video]`
 
-== Video Information ==
+== ℹ️ Video Information ==
 
 The shortcode of `vinfo` can be used to output useful video information. Simple pass the video ID using the parameter of `id` and then add any text between the opening and closing shortcode. If this text contains any of the following tags then they will be replaced with the relevant video information...
 
@@ -236,17 +228,7 @@ Under the YouTube Embed administration menu is a sub-menu named General Settings
 1. Add Metadata - by default, RDFa metadata is added to video output. This can be switched on or off as required (see the FAQs for more information about metadata usage).
 2. Feed - videos will not appear in feeds so use this option to decide whether you want them to be converted to links and/or thumbnails.
 
-== Third Party Plugins ==
-
-From the `YouTube Embed` administration menu there is a `3rd Party Plugins` sub-menu. This will list a number of WordPress plugins that can work alongside YouTube Embed to add extra functionality. From this screen you can view, install and see the status of each plugin.
-
-In some cases activating these plugins will cause their settings screen to also appear under the `YouTube Embed` menu, for extra convenience.
-
-**By listing these plugins, we provide no guarantees that they work correctly and we certainly don't provide any support for them.**
-
-If you'd like your own plugin adding to this list then please [get in touch](https://artiss.blog/contact-me/ "Contact").
-
-== Reviews & Mentions ==
+== ♥️ Reviews & Mentions ==
 
 * [Your YouTube Plugin is fantastic-it just saved my life on this site. Thank you!](https://twitter.com/AaronWatters/status/237957701605404672?uid=16257815&iid=am-130280753913455685118891763&nid=4+248 "Twitter - Aaron Watters") - Sonic Clamp
 * [New Technology Finds The Most Buzzed-About Parts Of Videos](http://www.socialtimes.com/2011/03/new-technology-finds-the-most-buzzed-about-parts-of-videos-interview/ "New Technology Finds The Most Buzzed-About Parts Of Videos") - SocialTimes
@@ -311,7 +293,7 @@ One thing to note - by switching on "Improve Validation" you'll extend the lengt
 
 = I'm getting the error "The maximum URL length has been exceeded" when trying to view a video =
 
-When embedding a video a URL for YouTube is generated - this contains all the non-default parameters that you've specified and, if you've created a manual playlist, all of the video IDs. Unfortunately, URLs can only be 2000 characters in size. If this is exceeded you'll get the above error message when you try and view the video.
+When embedding a video a URL for YouTube is generated - this contains all the non-default parameters that you've specified and, if you've created a manual playlist, all of the video IDs. Unfortunately, URLs can only be 2000 characters in size. If this is exceeded you'll get the above error message when you try and view the video./Users/davidartiss/Documents/GitHub/youtube-embed/readme.txt
 
 The solution is to reduce this down by reducing down your playlist or, if you have the "Improve Validation" settings switched on, switching that back off.
 
@@ -331,7 +313,18 @@ Before reporting it please bear in mind that this plugin uses the standard YouTu
 
 == Changelog ==
 
-[Learn more about my version numbering methodology](https://artiss.blog/2016/09/wordpress-plugin-versioning/ "WordPress Plugin Versioning") 
+🔢 [Learn more about my version numbering methodology](https://artiss.blog/2016/09/wordpress-plugin-versioning/ "WordPress Plugin Versioning") 
+
+= 5.1 =
+* Enhancement: Now supports specifying the language for the closed captions
+* Enhancement: Moved interface language option from the settings screen to profiles
+* Enhancement: You can now head to the settings screen and specify your own videos to be used on the profile screen
+* Enhancement: Added option to allow the Closed Caption language to be specified
+* Enhancement: Removed option in profile page to view an example 3D video. That just left a standard video and a playlist so, instead of switching between them, both examples are now set out on the page (so no need to switch now)
+* Maintenance: Removed deprecated window mode, auto-hide, HTML 5 and theme options
+* Maintenance: Removed the plugins menu
+* Bug: The demo videos weren't working, so they've been updated
+* Bug: Fixed an issue with the video cache, which was expiring too quickly
 
 = 5.0.6 =
 * Bug: It would appear that some of the code for the editor button was still lurking in dark corners of the plugin. That's caused those not rocking Gutenberg to see errors or, worst still, the dreaded "white screen of death". Apologies. I've now hoovered out all of the muck
