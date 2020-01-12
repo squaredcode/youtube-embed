@@ -102,14 +102,6 @@ function ye_menu_initialise() {
 
 	add_action( 'load-' . $ye_lists_hook, 'ye_add_lists_help' );
 
-	// Add third party plugins sub-menu
-
-	global $ye_plugins_hook;
-
-	$ye_plugins_hook = add_submenu_page( 'ye-profile-options', __( '3rd Party Plugins', 'youtube-embed' ),  __( '3rd Party Plugins', 'youtube-embed' ), $menu_access, 'ye-plugins-options', 'ye_plugins_options' );
-
-	add_action( 'load-' . $ye_plugins_hook, 'ye_add_plugins_help' );
-
 	// If installed, add link to Video Overlay Ads plugin
 
 	if ( function_exists( 'video_overlay_create_menu' ) ) {
@@ -175,20 +167,6 @@ function ye_profile_options() {
 function ye_list_options() {
 
 	include_once( plugin_dir_path( __FILE__ ) . 'options-lists.php' );
-
-}
-
-/**
-* Include plugins options screen
-*
-* XHTML options screen to view and install third party plugins
-*
-* @since	4.3
-*/
-
-function ye_plugins_options() {
-
-	include_once( plugin_dir_path( __FILE__ ) . 'options-plugins.php' );
 
 }
 
@@ -259,27 +237,6 @@ function ye_add_lists_help() {
 }
 
 /**
-* Add Plugins Help
-*
-* Add help tab to third party plugins screen
-*
-* @since	4.3
-*
-* @uses     ye_lists_help    Return help text
-*/
-
-function ye_add_plugins_help() {
-
-	global $ye_plugins_hook;
-	$screen = get_current_screen();
-
-	if ( $screen->id != $ye_plugins_hook ) { return; }
-
-	$screen -> add_help_tab( array( 'id' => 'lists-help-tab', 'title'	=> __( 'Help', 'youtube-embed' ), 'content' => youtube_embed_help( 'plugins' ) ) );
-
-}
-
-/**
 * Help Screens
 *
 * Generate help screen text
@@ -303,9 +260,6 @@ function youtube_embed_help( $screen, $tab = 'help' ) {
 	if ( $screen == 'profiles' && $tab == 'help' ) {
 
 		$text .= '<p>' . __( 'This screen allows you to set the options for the default and additional profiles. If you don\'t specify a specific parameter when displaying your YouTube video then the default profile option will be used instead. Additional profiles, which you may name, can be used as well and used as required.', 'youtube-embed' ) . '</p>';
-		$text .= '<p>' . __( 'All settings will work whether the Flash or HTML5 player is used, unless one of the following icons is shown, indicating which format the option works with...', 'youtube-embed' ) . '</p>';
-		$text .= "<p><img src='" . plugins_url( 'images/flash.png', dirname(__FILE__) ) . "' alt='" . __( 'Flash player', 'youtube-embed' ) . "' width='10px'/> - " . __( 'Flash player', 'youtube-embed' ) . '</br>';
-		$text .= "<img src='" . plugins_url( 'images/html5.png', dirname(__FILE__) ) . "' alt='" . __( 'HTML5 player', 'youtube-embed' ) . "' width='10px'/> - " . __( 'HTML5 player', 'youtube-embed' ) . '</br>';
 	}
 
 	if ( $screen == 'lists' && $tab == 'help' ) {
@@ -313,16 +267,7 @@ function youtube_embed_help( $screen, $tab = 'help' ) {
 		$text .= '<p>' . __( 'This screen allows you to create lists of YouTube videos, which may be named. These lists can then be used in preference to a single video ID.', 'youtube-embed' ) . '</p>';
 	}
 
-	if ( $screen == 'plugins' && $tab == 'help' ) {
-
-		$text .= '<p>' . __( 'This screen lists plugins which have all been tested for compatibility with YouTube Embed (and in some cases, specific changes have been made by their authors to ensure compatibility. From here you can view their details and even install the plugins (where hosted at WordPress.org).', 'youtube-embed' ) . '</p>';
-		$text .= '<p><strong>' . __( 'NB. Inclusion here does not provide any guarantee for third party software, which includes any support.', 'youtube-embed' ) . '</strong></p>';
-		$text .= '<p>' . __( 'Some of these plugins will also appear under the YouTube Admin administration menu, once activated.', 'youtube-embed' ) . '</p>';
-	}
-
-	if ( $tab == 'help' && $screen != 'plugins' ) {
-		$text .= '<p>' . __( 'Remember to click the Save Changes button at the bottom of the screen for any changes to take effect.', 'youtube-embed' ) . '</p>';
-	}
+	$text .= '<p>' . __( 'Remember to click the Save Changes button at the bottom of the screen for any changes to take effect.', 'youtube-embed' ) . '</p>';
 
 	if ( $tab == 'links' ) {
 

@@ -74,7 +74,7 @@ if ( isset( $shortcode ) && $shortcode != '' ) { add_shortcode( $shortcode, 'ye_
 
 function ye_video_shortcode( $paras = '', $content = '', $callback = '', $alt_shortcode = false ) {
 
-	extract( shortcode_atts( array( 'width' => '', 'height' => '', 'fullscreen' => '', 'related' => '', 'autoplay' => '', 'loop' => '', 'start' => '', 'info' => '', 'annotation' => '', 'cc' => '', 'style' => '', 'stop' => '', 'disablekb' => '', 'ratio' => '', 'autohide' => '', 'controls' => '', 'profile' => '', 'id' => '', 'url' => '', 'rel' => '', 'fs' => '', 	'cc_load_policy' => '', 'iv_load_policy' => '', 'showinfo' => '', 'youtubeurl' => '', 'template' => '', 'list' => '', 'color' => '', 'theme' => '', 'dynamic' => '', 'responsive' => '', 'h' => '', 'w' => '', 'search' => '', 'user' => '', 'modest' => '', 'playsinline' => '', 'html5' => '' ), $paras ) );
+	extract( shortcode_atts( array( 'width' => '', 'height' => '', 'fullscreen' => '', 'related' => '', 'autoplay' => '', 'loop' => '', 'start' => '', 'info' => '', 'annotation' => '', 'cc' => '', 'cc_lang' => '', 'language' => '', 'style' => '', 'stop' => '', 'disablekb' => '', 'ratio' => '', 'controls' => '', 'profile' => '', 'id' => '', 'url' => '', 'rel' => '', 'fs' => '', 	'cc_load_policy' => '', 'iv_load_policy' => '', 'showinfo' => '', 'youtubeurl' => '', 'template' => '', 'list' => '', 'color' => '', 'dynamic' => '', 'responsive' => '', 'h' => '', 'w' => '', 'search' => '', 'user' => '', 'modest' => '', 'playsinline' => '' ), $paras ) );
 
 	// If no profile specified and an alternative shortcode used, get that shortcodes default profile
 
@@ -137,19 +137,18 @@ function ye_video_shortcode( $paras = '', $content = '', $callback = '', $alt_sh
 					'stop' => $stop,
 					'disablekb' => ye_convert( $disablekb ),
 					'ratio' => $ratio,
-					'autohide' => ye_set_autohide( $autohide ),
 					'controls' => $controls,
 					'profile' => $profile,
 					'list_style' => $list,
 					'template' => $template,
 					'color' => $color,
-					'theme' => $theme,
 					'responsive' => ye_convert( $responsive ),
 					'search' => ye_convert( $search ),
 					'user' => ye_convert( $user ),
 					'modest' => ye_convert( $modest ),
 					'playsinline' => ye_convert( $playsinline ),
-					'html5' => ye_convert( $html5 )
+					'cc_lang' => $cc_lang,
+					'language' => $language
 					);
 
 	$youtube_code = ye_generate_youtube_code( $array );

@@ -31,7 +31,7 @@ function ye_generate_youtube_code( $array )  {
 
 	// Set defaults then merge with passed array. Finally, split array into individual variables
 
-	$default = array( 'id' => '', 'width' => '', 'height' => '', 'fullscreen' => '', 'related' => '', 'autoplay' => '', 'loop' => '', 'start' => '', 'annotation' => '', 'cc' => '', 'style' => '', 'stop' => '', 'disablekb' => '', 'ratio' => '', 'autohide' => '', 'controls' => '', 'profile' => '', 'list_style' => '', 'template' => '', 'color' => '', 'theme' => '', 'responsive' => '', 'search' => '', 'user' => '', 'modest' => '', 'playsinline' => '', 'html5' => '' );
+	$default = array( 'id' => '', 'width' => '', 'height' => '', 'fullscreen' => '', 'related' => '', 'autoplay' => '', 'loop' => '', 'start' => '', 'annotation' => '', 'cc' => '', 'style' => '', 'stop' => '', 'disablekb' => '', 'ratio' => '', 'controls' => '', 'profile' => '', 'list_style' => '', 'template' => '', 'color' => '', 'responsive' => '', 'search' => '', 'user' => '', 'modest' => '', 'playsinline' => '', 'cc_lang' => '', 'language' => '' );
 
 	$array = array_merge( $default, $array );
 
@@ -163,7 +163,7 @@ function ye_generate_youtube_code( $array )  {
 
 		// Generate the cache key - it's a combination of ALL the passed parameters, some of the general options, all of the relevant profile options and the playlist, if specified
 
-		$general_extract = array( 'metadata' => $general[ 'metadata' ], 'feed' => $general[ 'feed' ], 'thumbnail' => $general[ 'thumbnail' ], 'privacy' => $general[ 'privacy' ], 'frameborder' => $general[ 'frameborder' ], 'language' => $general[ 'language' ], 'debug' => $general[ 'debug' ], 'script' => $general[ 'script' ], 'force_list_type' => $general[ 'force_list_type' ] );
+		$general_extract = array( 'metadata' => $general[ 'metadata' ], 'feed' => $general[ 'feed' ], 'thumbnail' => $general[ 'thumbnail' ], 'privacy' => $general[ 'privacy' ], 'frameborder' => $general[ 'frameborder' ], 'debug' => $general[ 'debug' ], 'script' => $general[ 'script' ], 'force_list_type' => $general[ 'force_list_type' ] );
 
 		$key = serialize( $options ) . serialize( $array ) . serialize ( $general_extract );
 
@@ -214,7 +214,7 @@ function ye_generate_youtube_code( $array )  {
 		$height = $new_sizes[ 'height' ];
 	}
 
-	// If values have not been pressed, use the default values
+	// If values have not been passed, use the default values
 
 	if ( $fullscreen == '' ) { $fullscreen = $options[ 'fullscreen' ]; }
 	if ( $related == '' ) { $related = $options[ 'related' ]; }
@@ -222,23 +222,19 @@ function ye_generate_youtube_code( $array )  {
 	if ( $loop == '' ) { $loop = $options[ 'loop' ]; }
 	if ( $annotation == '' ) { $annotation = $options[ 'annotation' ]; }
 	if ( $cc == '' ) { $cc = $options[ 'cc' ]; }
+	if ( $cc_lang == '' ) { $cc_lang = $options[ 'cc_lang']; }
+	if ( $language == '' ) { $language = $options[ 'language']; }	
 	if ( $disablekb == '' ) { $disablekb = $options[ 'disablekb' ]; }
-	if ( $autohide == '' ) { $autohide = $options[ 'autohide' ]; }
 	if ( $controls == '' ) { $controls = $options[ 'controls' ]; }
 	if ( $style == '' ) { $style = $options[ 'style' ]; }
 	if ( $color == '' ) { $color = $options[ 'color' ]; }
-	if ( $theme == '' ) { $theme = $options[ 'theme' ]; }
     if ( $modest == '' ) { $modest = $options[ 'modest' ]; }
 	if ( $playsinline == '' ) { $playsinline = $options[ 'playsinline' ]; }
-	if ( $html5 == '' ) { $html5 = $options[ 'html5' ]; }
-	if ( $theme == '' ) { $theme = $options[ 'theme' ]; }
 
 	// And for those not passed, simply assign the defaults to variables
 
-	$language = $general[ 'language'];
 	$metadata = $general[ 'metadata' ];
 	$debug = $general[ 'debug' ];
-	$wmode = $options[ 'wmode' ];
 	$privacy = $general[ 'privacy' ];
 
 	if ( $start == '' ) { $start = '0'; }
@@ -277,14 +273,11 @@ function ye_generate_youtube_code( $array )  {
 	if ( $loop == 1 ) { $paras .= $amp . 'loop=1'; }
 	if ( $annotation != 1 ) { $paras .= $amp . 'iv_load_policy=3'; }
 	if ( $cc != '' ) { $paras .= $amp . 'cc_load_policy=' . $cc; }
+	if ( $cc_lang != '' ) { $paras .= $amp . 'cc_lang_pref=' . $cc_lang; }
 	if ( $disablekb == 1 ) { $paras .= $amp . 'disablekb=1'; }
-	if ( $autohide != 2 ) { $paras .= $amp . 'autohide=' . $autohide; }
 	if ( $controls != 1 ) { $paras .= $amp . 'controls=' . $controls; }
 	if ( strtolower( $color ) != 'red' ) { $paras .= $amp . 'color=' . strtolower( $color ); }
-	if ( strtolower( $theme ) != 'dark' ) { $paras .= $amp . 'theme=' . strtolower( $theme ); }
-	if ( $wmode != 'window' ) { $paras .= $amp . 'wmode=' . $wmode; }
 	if ( $playsinline == 1 ) { $paras .= $amp . 'playsinline=1'; }
-	if ( $html5 == 1 ) { $paras .= $amp . 'html5=1'; }
 	if ( $language != '' ) { $paras .= $amp . 'hl=' . $language; }
 	if ( $start != 0 ) { $paras .= $amp . 'start=' . $start; }
 	if ( $stop != 0 ) { $paras .= $amp . 'end=' . $stop; }
@@ -406,7 +399,7 @@ function ye_generate_youtube_code( $array )  {
 
 	if ( $general[ 'video_cache' ] != 0 && get_the_date() !== false && !$cache_suppress ) {
 
-		$cache = $general[ 'video_cache' ] * HOURS_IN_SECONDS;
+		$cache = $general[ 'video_cache' ] * HOUR_IN_SECONDS;
 
 		ye_set_transient( $key, $result, $cache, true );
 

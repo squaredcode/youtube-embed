@@ -8,7 +8,7 @@
 * @since	2.0
 */
 
-$demo_video = 'X20GdsIUGKM';
+$langs = array( "aa", "ab", "ae", "af", "ak", "am", "an", "ar", "as", "av", "ay", "az", "ba", "be", "bg", "bh", "bi", "bm", "bn", "bo", "br", "bs", "ca", "ce", "ch", "co", "cr", "cs", "cu", "cv", "cy", "da", "de", "dv", "dz", "ee", "el", "en", "eo", "es", "et", "eu", "fa", "ff", "fi", "fj", "fo", "fr", "fy", "ga", "gd", "gl", "gn", "gu", "gv", "ha", "he", "hi", "ho", "hr", "ht", "hu", "hy", "hz", "ia", "id", "ie", "ig", "ii", "ik", "io", "is", "it", "iu", "ja", "jv", "ka", "kg", "ki", "kj", "kk", "kl", "km", "kn", "ko", "kr", "ks", "ku", "kv", "kw", "ky", "la", "lb", "lg", "li", "ln", "lo", "lt", "lu", "lv", "mg", "mh", "mi", "mk", "ml", "mn", "mr", "ms", "mt", "my", "na", "nb", "nd", "ne", "ng", "nl", "nn", "no", "nr", "nv", "ny", "oc", "oj", "om", "or", "os", "pa", "pi", "pl", "ps", "pt", "qu", "rm", "rn", "ro", "ru", "rw", "sa", "sc", "sd", "se", "sg", "si", "sk", "sl", "sm", "sn", "so", "sq", "sr", "ss", "st", "su", "sv", "sw", "ta", "te", "tg", "th", "ti", "tk", "tl", "tn", "to", "tr", "ts", "tt", "tw", "ty", "ug", "uk", "ur", "uz", "ve", "vi", "vo", "wa", "wo", "xh", "yi", "yo", "za", "zh" );
 
 // Set current profile number
 
@@ -57,12 +57,11 @@ if ( ( !empty( $_POST[ 'Submit' ] ) ) && ( check_admin_referer( 'youtube-embed-p
 	if ( strpos( $options[ 'template' ], '%video%' ) === false ) { $options[ 'template' ] = '%video%'; }
 
 	$options[ 'style' ] = sanitize_text_field( $_POST[ 'youtube_embed_style' ] );
-	$options[ 'autohide'] = sanitize_text_field( $_POST[ 'youtube_embed_autohide' ] );
 	$options[ 'controls'] = sanitize_text_field( $_POST[ 'youtube_embed_controls' ] );
-	$options[ 'wmode'] = sanitize_text_field( $_POST[ 'youtube_embed_wmode' ] );
 	$options[ 'color' ] = sanitize_text_field( $_POST[ 'youtube_embed_color' ] );
-	$options[ 'theme' ] = sanitize_text_field( $_POST[ 'youtube_embed_theme' ] );
 	$options[ 'download_style' ] = sanitize_text_field( $_POST[ 'youtube_embed_download_style' ] );
+	$options[ 'cc_lang' ] = sanitize_text_field( $_POST[ 'youtube_embed_cc_lang' ] );
+	$options[ 'language' ] = sanitize_text_field( $_POST[ 'youtube_embed_language' ] );	
 
 	$options[ 'download_text' ] = str_replace( '\"', '"', str_replace( "\'", "'", $_POST[ 'youtube_embed_download_text' ] ) );
 
@@ -71,10 +70,10 @@ if ( ( !empty( $_POST[ 'Submit' ] ) ) && ( check_admin_referer( 'youtube-embed-p
 	if ( isset( $_POST[ 'youtube_embed_autoplay' ] ) ) { $options[ 'autoplay'] = sanitize_text_field( $_POST[ 'youtube_embed_autoplay' ] ); } else { $options[ 'autoplay' ] = ''; }
 	if ( isset( $_POST[ 'youtube_embed_loop' ] ) ) { $options[ 'loop'] = sanitize_text_field( $_POST[ 'youtube_embed_loop' ] ); } else { $options[ 'loop' ] = ''; }
 	if ( isset( $_POST[ 'youtube_embed_cc' ] ) ) { $options[ 'cc'] = sanitize_text_field( $_POST[ 'youtube_embed_cc' ] ); } else { $options[ 'cc' ] = ''; }
+
 	if ( isset( $_POST[ 'youtube_embed_annotation' ] ) ) { $options[ 'annotation'] = sanitize_text_field( $_POST[ 'youtube_embed_annotation' ] ); } else { $options[ 'annotation' ] = ''; }
 	if ( isset( $_POST[ 'youtube_embed_related' ] ) ) { $options[ 'related'] = sanitize_text_field( $_POST[ 'youtube_embed_related' ] ); } else { $options[ 'related' ] = ''; }
 	if ( isset( $_POST[ 'youtube_embed_disablekb' ] ) ) { $options[ 'disablekb'] = sanitize_text_field( $_POST[ 'youtube_embed_disablekb' ] ); } else { $options[ 'disablekb' ] = ''; }
-	if ( isset( $_POST[ 'youtube_embed_html5' ] ) ) { $options[ 'html5'] = sanitize_text_field( $_POST[ 'youtube_embed_html5' ] ); } else { $options[ 'html5' ] = ''; }
 	if ( isset( $_POST[ 'youtube_embed_modest' ] ) ) { $options[ 'modest' ] = sanitize_text_field( $_POST[ 'youtube_embed_modest' ] ); } else { $options[ 'modest' ] = ''; }
 	if ( isset( $_POST[ 'youtube_embed_dynamic' ] ) ) { $options[ 'dynamic' ] = sanitize_text_field( $_POST[ 'youtube_embed_dynamic' ] ); } else { $options[ 'dynamic' ] = ''; }
 	if ( isset( $_POST[ 'youtube_embed_fixed' ] ) ) { $options[ 'fixed' ] = sanitize_text_field( $_POST[ 'youtube_embed_fixed' ] ); } else { $options[ 'fixed' ] = ''; }
@@ -197,18 +196,6 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 <p class="description"><?php _e( 'CSS elements to apply to video.', 'youtube-embed' ); ?></p></label></td>
 </tr>
 
-<!-- Window Mode -->
-
-<tr>
-<th scope="row"><?php _e( 'Window Mode', 'youtube-embed' ); ?>&nbsp;<img src="<?php echo plugins_url( 'images/flash.png', dirname(__FILE__) ); ?>" alt="<?php _e( 'Flash', 'youtube-embed' ) ?>" width="10px" align="top"></th>
-<td><label for="youtube_embed_wmode"><select name="youtube_embed_wmode">
-<option value="opaque"<?php if ( $options[ 'wmode' ] == "opaque" ) { echo " selected='selected'"; } ?>><?php _e( 'Opaque', 'youtube-embed' ); ?></option>
-<option value="transparent"<?php if ( $options[ 'wmode' ] == "transparent" ) { echo " selected='selected'"; } ?>><?php _e( 'Transparent', 'youtube-embed' ); ?></option>
-<option value="window"<?php if ( $options[ 'wmode' ] == "window" ) { echo " selected='selected'"; } ?>><?php _e( 'Window', 'youtube-embed' ); ?></option>
-</select></label>
-<p class="description"><?php _e( 'Sets the Window Mode property of the Flash movie for transparency, layering, and positioning in the browser. <a href="http://www.communitymx.com/content/article.cfm?cid=e5141">Learn more</a>.', 'youtube-embed' ); ?></p></td>
-</tr>
-
 </table><hr><h3 class="title"><?php _e( 'Video Size', 'youtube-embed' ); ?></h3><table class="form-table">
 
 <!-- Video Size -->
@@ -254,7 +241,7 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 <!-- Playsinline -->
 
 <tr>
-<th scope="row"><?php _e( 'Plays Inline', 'youtube-embed' ); ?>&nbsp;<img src="<?php echo plugins_url( 'images/html5.png', dirname(__FILE__) ); ?>" alt="<?php _e( 'HTML5', 'youtube-embed' ) ?>" width="10px" align="top"></th>
+<th scope="row"><?php _e( 'Plays Inline', 'youtube-embed' ); ?></th>
 
 <td><label for="youtube_embed_playsinline"><input type="checkbox" name="youtube_embed_playsinline" value="1" <?php checked( $options[ 'playsinline' ], "1" ); ?>/>
 <?php _e( 'Whether videos play inline or fullscreen in an HTML5 player on iOS. ', 'youtube-embed' ); ?></label></td>
@@ -299,16 +286,28 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 <p class="description"><?php _e( 'Show closed captions.', 'youtube-embed' ); ?></p></td>
 </tr>
 
-<!-- HTML5 -->
+<!-- Closed Caption Language -->
 
 <tr>
-<th scope="row"><?php _e( 'Default to HTML5', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_html5"><input type="checkbox" name="youtube_embed_html5" value="1" <?php checked( $options[ 'html5' ], "1" ); ?>/>
-<?php _e( 'Default to the HTML5 player (if available)', 'youtube-embed' ); ?></label>
-<p class="description"><?php _e( 'This is an undocumented feature and may not work.', 'youtube-embed' ); ?></p></td>
-</tr>
+<th scope="row"><?php _e( 'Closed Captions Language', 'youtube-embed' ); ?></th>
+<td><label for="youtube_embed_cc_lang"><select name="youtube_embed_cc_lang">
+<option value=""<?php if ( $options[ 'cc_lang' ] == "" ) { echo " selected='selected'"; } ?>>N/A</option>
+<?php
+$loop = 0;
+while ( $loop < count( $langs ) ) {
 
-</table><hr><h3 class="title"><?php _e( 'Information', 'youtube-embed' ); ?></h3><table class="form-table">
+	echo '<option value=" '. $langs[ $loop ] . '"';
+	if ( $langs[ $loop ] == $options[ 'cc_lang' ] ) { echo " selected='selected'"; } 
+	echo '>' . $langs[ $loop ] . '</option>';
+
+	$loop ++;
+}
+
+?>
+</select></label>
+<p class="description"><?php echo __( 'Closed captions language. Select a <a href="http://www.loc.gov/standards/iso639-2/php/code_list.php">ISO 639-1 two-letter language code</a> or N/A for none.', 'youtube-embed' ); ?></p></td>
+
+</tr>
 
 <!-- Related -->
 
@@ -330,16 +329,12 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 
 </table><hr><h3 class="title"><?php _e( 'Controls', 'youtube-embed' ); ?></h3><table class="form-table">
 
-<!-- Auto Hide -->
+<!-- Interface language -->
 
 <tr>
-<th scope="row"><?php _e( 'Auto hide', 'youtube-embed' ); ?>&nbsp;<img src="<?php echo plugins_url( 'images/flash.png', dirname(__FILE__) ); ?>" alt="<?php _e( 'Flash', 'youtube-embed' ) ?>" width="10px" align="top"></th>
-<td><label for="youtube_embed_autohide"><select name="youtube_embed_autohide">
-<option value="0"<?php if ( $options[ 'autohide' ] == "0" ) { echo " selected='selected'"; } ?>><?php _e( 'Controls &amp; progress bar remain visible', 'youtube-embed' ); ?></option>
-<option value="1"<?php if ( $options[ 'autohide' ] == "1" ) { echo " selected='selected'"; } ?>><?php _e( 'Controls &amp; progress bar fade out', 'youtube-embed' ); ?></option>
-<option value="2"<?php if ( $options[ 'autohide' ] == "2" ) { echo " selected='selected'"; } ?>><?php _e( 'Progress bar fades', 'youtube-embed' ); ?></option>
-</select></label>
-<p class="description"><?php _e( 'Whether the video controls will automatically hide after a video begins playing.', 'youtube-embed' ); ?></p></td>
+<th scope="row"><?php _e( 'Interface Language', 'youtube-embed' ); ?></th>
+<td><label for="youtube_embed_language"><input type="text" size="5" maxlength="5" name="youtube_embed_language" value="<?php echo esc_attr( $options[ 'language' ] ); ?>"/><?php _e( 'The player\'s interface language', 'youtube-embed' ); ?></label>
+<p class="description"><?php echo __( 'The parameter value is an <a href="https://www.loc.gov/standards/iso639-2/php/code_list.php">ISO 639-1 two-letter language code</a> or a fully specified locale. Leave blank for the default.', 'youtube-embed' ); ?></p></td>
 </tr>
 
 <!-- Controls -->
@@ -368,17 +363,6 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 <th scope="row"><?php _e( 'Fullscreen', 'youtube-embed' ); ?></th>
 <td><label for="youtube_embed_fullscreen"><input type="checkbox" name="youtube_embed_fullscreen" value="1" <?php checked( $options[ 'fullscreen' ], "1" ); ?>/>
 <?php _e( 'A button will allow the viewer to watch the video fullscreen', 'youtube-embed' ); ?></label></td>
-</tr>
-
-<!-- Theme -->
-
-<tr>
-<th scope="row"><?php _e( 'Theme', 'youtube-embed' ); ?>&nbsp;<img src="<?php echo plugins_url( 'images/flash.png', dirname(__FILE__) ); ?>" alt="<?php _e( 'Flash', 'youtube-embed' ) ?>" width="10px" align="top"></th>
-<td><label for="youtube_embed_theme"><select name="youtube_embed_theme">
-<option value="dark"<?php if ( $options[ 'theme' ] == "dark" ) { echo " selected='selected'"; } ?>><?php _e( 'Dark', 'youtube-embed' ); ?></option>
-<option value="light"<?php if ( $options[ 'theme' ] == "light" ) { echo " selected='selected'"; } ?>><?php _e( 'Light', 'youtube-embed' ); ?></option>
-</select></label>
-<p class="description"><?php _e( 'Display player controls within a dark or light control bar.', 'youtube-embed' ); ?></p></td>
 </tr>
 
 <!-- Color -->
@@ -428,24 +412,11 @@ echo ' ' . __( 'Use the drop-down on the right hand side to swap between profile
 
 <a href="#" name="video"></a>
 <div style="max-width: <?php echo esc_attr( $options[ 'width' ] ); ?>px">
-<form method="post" action="<?php echo get_bloginfo( 'wpurl' ).'/wp-admin/admin.php?page=ye-profile-options#video' ?>">
 <h3><?php _e( 'YouTube Video Sample', 'youtube-embed' ); ?></h3>
-<p><?php _e( 'The video below uses the above, saved profile settings. Use the drop-down below to change which parameters the video uses - press the Change Video button to update it.', 'youtube-embed' ); ?></p>
-<p><select name="youtube_embed_video_type">
-<option value="d"<?php if ( $video_type == "d" ) { echo " selected='selected'"; } ?>><?php _e( 'Standard', 'youtube-embed' ); ?></option>
-<option value="3"<?php if ( $video_type == "3" ) { echo " selected='selected'"; } ?>><?php _e( '3D', 'youtube-embed' ); ?></option>
-<option value="l"<?php if ( $video_type == "l" ) { echo " selected='selected'"; } ?>><?php _e( 'Playlist', 'youtube-embed' ); ?></option>
-</select>
-<?php wp_nonce_field( 'youtube-embed-profile', 'youtube_embed_profile_nonce', true, true ); ?>
-<input type="submit" name="Video" class="button-secondary" value="<?php _e( 'Change video', 'youtube-embed' ); ?>"/></p>
-
-<p><?php
-if ( $video_type == "d" ) { $id = $demo_video; }
-if ( $video_type == "3" ) { $id = 'NR5UoBY87GM'; }
-if ( $video_type == "l" ) { $id = '095393D5B42B2266'; }
-echo ye_generate_youtube_code( array( 'id' => $id, 'profile' => $profile_no ) );
-?></p>
-
-</form></div>
+<p><?php _e( 'The videos below uses the above, saved profile settings in use', 'youtube-embed' ); ?></p>
+<h4><?php _e( 'Standard video', 'youtube-embed' ); ?></h3>
+<p><?php echo ye_generate_youtube_code( array( 'id' => $general[ 'standard_video' ], 'profile' => $profile_no ) ); ?></p>
+<h4><?php _e( 'Playlist', 'youtube-embed' ); ?></h3>
+<p><?php echo ye_generate_youtube_code( array( 'id' => $general[ 'playlist_video' ], 'profile' => $profile_no ) ); ?></p>
 
 </div>

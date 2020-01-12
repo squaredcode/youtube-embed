@@ -39,8 +39,9 @@ if ( ( !empty( $_POST ) ) && ( check_admin_referer( 'youtube-embed-general', 'yo
 	$options[ 'thumbnail' ] = sanitize_text_field( $_POST[ 'youtube_embed_thumbnail' ] );
 	$options[ 'privacy' ] = sanitize_text_field( $_POST[ 'youtube_embed_privacy' ] );
 	$options[ 'menu_access' ] = sanitize_text_field( $_POST[ 'youtube_embed_menu_access' ] );
-	$options[ 'language' ] = sanitize_text_field( $_POST[ 'youtube_embed_language' ] );
 	$options[ 'script' ] = sanitize_text_field( $_POST[ 'youtube_embed_script' ] );
+	$options[ 'standard_video' ] = sanitize_text_field( $_POST[ 'youtube_embed_video' ] );
+	$options[ 'playlist_video' ] = sanitize_text_field( $_POST[ 'youtube_embed_playlist' ] );	
 
 	$options[ 'api_cache' ] = sanitize_text_field( $_POST[ 'youtube_embed_api_cache' ] );
 	if ( !is_numeric( $options[ 'api_cache' ] ) ) { $options[ 'api_cache' ] = 0; }
@@ -282,6 +283,24 @@ $shortcode = ye_get_shortcode();
 <?php _e( 'Show debug output as HTML comments', 'youtube-embed' ); ?></label></td>
 </tr>
 
+</table><hr><h3 class="title"><?php _e( 'Profile Demo Videos', 'youtube-embed' ); ?></h3><table class="form-table">
+
+<!-- Standard Video -->
+
+<tr>
+<th scope="row"><?php _e( 'Standard Video', 'youtube-embed' ); ?></th>
+<td><label for="youtube_embed_video"><input type="text" size="30" name="youtube_embed_video" value="<?php echo esc_attr( $options[ 'standard_video' ] ); ?>"/></label>
+<p class="description"><?php _e( 'ID of a YouTube video.', 'youtube-embed' ); ?></p></td>
+</tr>
+
+<!-- Playlist Video -->
+
+<tr>
+<th scope="row"><?php _e( 'Playlist', 'youtube-embed' ); ?></th>
+<td><label for="youtube_embed_playlist"><input type="text" size="30" name="youtube_embed_playlist" value="<?php echo esc_attr( $options[ 'playlist_video' ] ); ?>"/></label>
+<p class="description"><?php _e( 'ID of a YouTube playlist.', 'youtube-embed' ); ?></p></td>
+</tr>
+
 </table><hr><h3 class="title"><?php _e( 'Miscellaneous', 'youtube-embed' ); ?></h3><table class="form-table">
 
 <!-- Validation -->
@@ -291,14 +310,6 @@ $shortcode = ye_get_shortcode();
 <td><label for="youtube_embed_frameborder"><input type="checkbox" name="youtube_embed_frameborder" value="1" <?php checked( $options[ 'frameborder' ], "1" ); ?>/>
 <?php _e( 'Improve the validity of the generated markup', 'youtube-embed' ); ?></label>
 <p class="description"><?php _e( 'Will extend the length of the URL, limiting the number of videos in a manual playlist. Switch off metadata for even better validation results.', 'youtube-embed' ); ?></p></td>
-</tr>
-
-<!-- Interface language -->
-
-<tr>
-<th scope="row"><?php _e( 'Interface language', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_language"><input type="text" size="5" maxlength="5" name="youtube_embed_language" value="<?php echo esc_attr( $options[ 'language' ] ); ?>"/><?php _e( 'The player\'s interface language', 'youtube-embed' ); ?></label>
-<p class="description"><?php echo __( 'The parameter value is an <a href="https://www.loc.gov/standards/iso639-2/php/code_list.php">ISO 639-1 two-letter language code</a> or a fully specified locale. For example, the current locale is ', 'youtube-embed' ) . strtolower( str_replace( '_', '-', get_locale() ) ) . '.'; ?></p></td>
 </tr>
 
 </table>
