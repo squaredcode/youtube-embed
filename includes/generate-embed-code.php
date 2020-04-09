@@ -1,35 +1,32 @@
 <?php
 /**
-* Generate embed code
-*
-* Functions calls to generate the required YouTube code
-*
-* @package	youtube-embed
-*/
+ * Generate embed code
+ *
+ * Functions calls to generate the required YouTube code
+ *
+ * @package youtube-embed
+ */
 
 /**
-* Generate embed code
-*
-* Generate XHTML compatible YouTube embed code
-*
-* @since	2.0
-*
-* @uses		ye_add_links				Add links under video
-* @uses		ye_error				    Display an error
-* @uses		ye_extract_id			    Get the video ID
-* @uses		ye_validate_list		    Get the requested lists
-* @uses		ye_get_api_data			    Get the API data
-* @uses		ye_validate_profile		Get the requested profile
-* @uses		ye_get_general_defaults	Get general options
-* @uses		ye_get_profile				Set default profile options
-*
-* @param	string		$array			Array of parameters
-* @return	string						Code output
-*/
+ * Generate embed code
+ *
+ * Generate XHTML compatible YouTube embed code
+ *
+ * @uses   ye_add_links             Add links under video.
+ * @uses   ye_error                 Display an error.
+ * @uses   ye_extract_id            Get the video ID.
+ * @uses   ye_validate_list         Get the requested lists.
+ * @uses   ye_get_api_data          Get the API data.
+ * @uses   ye_validate_profile      Get the requested profile.
+ * @uses   ye_get_general_defaults  Get general options.
+ * @uses   ye_get_profile           Set default profile options.
+ *
+ * @param  string $array            Array of parameters.
+ * @return string                   Code output.
+ */
+function ye_generate_youtube_code( $array ) {
 
-function ye_generate_youtube_code( $array )  {
-
-	// Set defaults then merge with passed array. Finally, split array into individual variables
+	// Set defaults then merge with passed array. Finally, split array into individual variables.
 
 	$default = array( 'id' => '', 'width' => '', 'height' => '', 'fullscreen' => '', 'related' => '', 'autoplay' => '', 'loop' => '', 'start' => '', 'annotation' => '', 'cc' => '', 'style' => '', 'stop' => '', 'disablekb' => '', 'ratio' => '', 'controls' => '', 'profile' => '', 'list_style' => '', 'template' => '', 'color' => '', 'responsive' => '', 'search' => '', 'user' => '', 'modest' => '', 'playsinline' => '', 'cc_lang' => '', 'language' => '' );
 
@@ -252,39 +249,45 @@ function ye_generate_youtube_code( $array )  {
 	}
 	if ( strpos( $template, '%video%' ) === false ) { $template = '%video%'; }
 
-	// Set validation options
+	// Set frameborder options.
 
 	if ( isset( $general[ 'frameborder' ] ) && $general[ 'frameborder' ] != 1 ) {
 		$frameborder = 'frameborder="0" ';
-		$amp = '&';
 	} else {
 		$frameborder = '';
-		$amp = '&amp;';
 	}
 
-	// Generate parameters to add to URL but only if they differ from the default
+	// Generate parameters to add to URL but only if they differ from the default.
 
 	$paras = '';
 
-	if ( $modest == 1 ) { $paras .= $amp . 'modestbranding=1'; }
-	if ( $fullscreen != 1 ) { $paras .= $amp . 'fs=0'; }
-	if ( $related != 1 ) { $paras .= $amp . 'rel=0'; }
-	if ( $autoplay == 1 ) { $paras .= $amp . 'autoplay=1'; }
-	if ( $loop == 1 ) { $paras .= $amp . 'loop=1'; }
-	if ( $annotation != 1 ) { $paras .= $amp . 'iv_load_policy=3'; }
-	if ( $cc != '' ) { $paras .= $amp . 'cc_load_policy=' . $cc; }
-	if ( $cc_lang != '' ) { $paras .= $amp . 'cc_lang_pref=' . $cc_lang; }
-	if ( $disablekb == 1 ) { $paras .= $amp . 'disablekb=1'; }
-	if ( $controls != 1 ) { $paras .= $amp . 'controls=' . $controls; }
-	if ( strtolower( $color ) != 'red' ) { $paras .= $amp . 'color=' . strtolower( $color ); }
-	if ( $playsinline == 1 ) { $paras .= $amp . 'playsinline=1'; }
-	if ( $language != '' ) { $paras .= $amp . 'hl=' . $language; }
-	if ( $start != 0 ) { $paras .= $amp . 'start=' . $start; }
-	if ( $stop != 0 ) { $paras .= $amp . 'end=' . $stop; }
+	if ( $modest == 1 ) { $paras .= '&modestbranding=1'; }
+	if ( $fullscreen != 1 ) { $paras .= '&fs=0'; }
+	if ( $related != 1 ) { $paras .= '&rel=0'; }
+	if ( $autoplay == 1 ) { $paras .= '&autoplay=1'; }
+	if ( $loop == 1 ) { $paras .= '&loop=1'; }
+	if ( $annotation != 1 ) { $paras .= '&iv_load_policy=3'; }
+	if ( $cc != '' ) { $paras .= '&cc_load_policy=' . $cc; }
+	if ( $cc_lang != '' ) { $paras .= '&cc_lang_pref=' . $cc_lang; }
+	if ( $disablekb == 1 ) { $paras .= '&disablekb=1'; }
+	if ( $controls != 1 ) { $paras .= '&controls=' . $controls; }
+	if ( strtolower( $color ) != 'red' ) { $paras .= '&color=' . strtolower( $color ); }
+	if ( $playsinline == 1 ) { $paras .= '&playsinline=1'; }
+	if ( $language != '' ) { $paras .= '&hl=' . $language; }
+	if ( $start != 0 ) { $paras .= '&start=' . $start; }
+	if ( $stop != 0 ) { $paras .= '&end=' . $stop; }
 
-	// If not a playlist, add the playlist parameter
+	// If the loop parameter is being used, make this a single video playlist.
 
-	if ( ( $playlist_ids != '' ) && ( $playlist_ids != $id ) ) { $paras .= $amp . 'playlist=' . $playlist_ids; }
+	if ( 1 == $loop && '' == $playlist_ids ) {
+		$playlist_ids = $id;
+	}
+
+	// If not a playlist, add the playlist parameter.
+
+	if ( '' != $playlist_ids ) {
+		$paras .= '&playlist=' . $playlist_ids;
+	}
 
 	// Generate DIVs to wrap around video
 
