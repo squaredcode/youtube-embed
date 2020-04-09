@@ -3,9 +3,9 @@ Contributors: dartiss
 Donate link: https://artiss.blog/donate
 Tags: embed, insert, video, youtube
 Requires at least: 4.6
-Tested up to: 5.3
+Tested up to: 5.4
 Requires PHP: 5.3
-Stable tag: 5.1
+Stable tag: 5.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -313,7 +313,13 @@ Before reporting it please bear in mind that this plugin uses the standard YouTu
 
 == Changelog ==
 
-🔢 [Learn more about my version numbering methodology](https://artiss.blog/2016/09/wordpress-plugin-versioning/ "WordPress Plugin Versioning") 
+🔢 [Learn more about my version numbering methodology](https://artiss.blog/2016/09/wordpress-plugin-versioning/ "WordPress Plugin Versioning")
+
+= 5.1.1 =
+* Enhancement: Added extra plugin meta
+* Bug: The URL separator was not always correct - it still seemed to work but it was sloppy
+* Bug: Reduced the top padding on videos
+* Bug: Single-video looping was not working due a change in how YouTube nows processes them (they now have to be single-video playlists for them to loop. Yeah, I know)
 
 = 5.1 =
 * Enhancement: Now supports specifying the language for the closed captions
@@ -537,5 +543,5 @@ Before reporting it please bear in mind that this plugin uses the standard YouTu
 
 == Upgrade Notice ==
 
-= 5.0.6 =
-* Bug fix
+= 5.1.1 =
+* Whilst we'd holed up at home, it's bug fix time!

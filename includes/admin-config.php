@@ -36,25 +36,25 @@ function ye_add_settings_link( $links, $file ) {
 add_filter( 'plugin_action_links', 'ye_add_settings_link', 10, 2 );
 
 /**
-* Add meta to plugin details
-*
-* Add options to plugin meta line
-*
-* @since	2.0
-*
-* @param	string  $links	Current links
-* @param	string  $file	File in use
-* @return   string			Links, now with settings added
-*/
-
+ * Add meta to plugin details
+ *
+ * Add options to plugin meta line
+ *
+ * @param  string $links  Current links.
+ * @param  string $file   File in use.
+ * @return string         Links, now with settings added.
+ */
 function ye_set_plugin_meta( $links, $file ) {
 
 	if ( strpos( $file, 'youtube-embed.php' ) !== false ) {
 
-		$links = array_merge( $links, array( '<a href="https://github.com/dartiss/youtube-embed">' . __( 'Github', 'youtube-embed' ) . '</a>' ) );		
+		$links = array_merge( $links, array( '<a href="https://github.com/dartiss/youtube-embed">' . __( 'Github', 'youtube-embed' ) . '</a>' ) );
 
 		$links = array_merge( $links, array( '<a href="https://wordpress.org/support/plugin/youtube-embed">' . __( 'Support', 'youtube-embed' ) . '</a>' ) );
 
+		$links = array_merge( $links, array( '<a href="https://artiss.blog/donate">' . __( 'Donate', 'youtube-embed' ) . '</a>' ) );
+
+		$links = array_merge( $links, array( '<a href="https://wordpress.org/support/plugin/youtube-embed/reviews/#new-post">' . __( 'Write a Review', 'youtube-embed' ) . '&nbsp;⭐️⭐️⭐️⭐️⭐️</a>' ) );
 	}
 
 	return $links;
