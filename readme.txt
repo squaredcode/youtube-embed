@@ -561,5 +561,5 @@ Before reporting it please bear in mind that this plugin uses the standard YouTu
 
 == Upgrade Notice ==
 
-= 5.1.1 =
-* Whilst we'd holed up at home, it's bug fix time!
+= 5.2 =
+* Native lazy loading is a go! And lots of code quality tweaks that you won't notice unless you crack open the source code...
