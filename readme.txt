@@ -5,7 +5,7 @@ Tags: embed, insert, video, youtube
 Requires at least: 4.6
 Tested up to: 5.4
 Requires PHP: 5.3
-Stable tag: 5.1.1
+Stable tag: 5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,15 +42,26 @@ To add a video to a post or page simply use the shortcode `[[youtube]video[/yout
 
 If you're not sure what the video ID is, please head to the FAQ section where it's explained in greater detail!
 
-Within the administration area, click on the YouTube Embed menu option and then General Settings to view and edit the generic settings for the plugin. Also under the YouTube Embed menu (see screenshot 1) you can click on the Profiles sub-menu to set the default options which define the output of your videos. Any videos you display (unless overridden by parameters - more on that later) will use the settings from the Profiles screen.
+Within the administration area, click on the Settings menu option and then YouTube Embed to view and edit the generic settings for the plugin. Also under the YouTube Embed menu (see screenshot 1) you can click on the Profiles sub-menu to set the default options which define the output of your videos. Any videos you display (unless overridden by parameters - more on that later) will use the settings from the Profiles screen.
 
 Although this document contains a lot of information more is provided on the various administration pages. Whilst on the administration pages, click on the "Help" button in the top right for some useful tips and links. If anything isn't covered and you're unsure of what it does please ask [on the forum](https://wordpress.org/support/plugin/youtube-embed "WordPress Plugins Forum").
 
 == 🔑 Creating an API Key ==
 
-At the top of the `General Settings` administration screen is an option to specify an API key. This is optional but many of the features of this plugin - including accurate video information being added to the metadata - will not be available without it. Thankfully an API key is easy to get and is free.
+At the top of the `YouTube Embed Settings` administration screen is an option to specify an API key. This is optional but many of the features of this plugin - including accurate video information being added to the metadata - will not be available without it. Thankfully an API key is easy to get and is free.
 
-First, head to the [YouTube Developers Console](https://console.developers.google.com/project "Developers Console") and create a project. Click on this project and head to "Credentials" in the side menu. Click on "Create credentials" and from the drop-down select API Key. You will be prompted for the type of key so select "Server key". Name it and then press Create. The API key will be shown.
+1. Head to the [YouTube Developers Console](https://console.developers.google.com/cloud-resource-manager "Developers Console")
+2. Click on CREATE PROJECT
+3. Once created, head into it
+4. In the APIs box, click on "Go to APIs overview"
+5. Click on "ENABLE APIS AND SERVICES" at the top of the screen
+6. You can now choose your API - click on YouTube Data API v3
+7. Click the "ENABLE" button
+8. Click on "CREATE CREDENTIALS"
+9. On the drop-downs, choose the API we selected before, "Web browser and "Public data"
+10. You will now be presented with your API key
+
+The API key can now be pasted into the settings in WP Admin.
 
 == Further embedding options ==
 
@@ -88,7 +99,7 @@ Which options are available depends upon the users's set-up (for example, whethe
 
 == Alternative Shortcodes ==
 
-Within Administration, selecting General Settings from the YouTube Embed menu will provide a list of generic options. One option is named `Alternative Shortcode` and allows you to specify another shortcode that will work exactly the same as the standard shortcode of `[[youtube]]`.
+Within Administration, selecting Settings -> YouTube Embed will provide a list of generic options. One option is named `Alternative Shortcode` and allows you to specify another shortcode that will work exactly the same as the standard shortcode of `[[youtube]]`.
 
 There are 2 reasons why you might want to do this...
 
@@ -223,7 +234,7 @@ This would display a 120x90 pixel thumbnail with a clickable link to the origina
 
 == Other Settings ==
 
-Under the YouTube Embed administration menu is a sub-menu named General Settings. Select this and find the section named Embedding. There are 2 options here that have not been covered already...
+Under the Settings menu s a sub-menu named YouTube Embed. Select this and find the section named Embedding. There are 2 options here that have not been covered already...
 
 1. Add Metadata - by default, RDFa metadata is added to video output. This can be switched on or off as required (see the FAQs for more information about metadata usage).
 2. Feed - videos will not appear in feeds so use this option to decide whether you want them to be converted to links and/or thumbnails.
@@ -314,6 +325,13 @@ Before reporting it please bear in mind that this plugin uses the standard YouTu
 == Changelog ==
 
 🔢 [Learn more about my version numbering methodology](https://artiss.blog/2016/09/wordpress-plugin-versioning/ "WordPress Plugin Versioning")
+
+= 5.2 =
+* Enhancement: What have I been doing during the pandemic? Picking through this code and resolving coding standards. Sigh. There's a LOT. Not all are done but will be in future updates but, for now, the majority are. Based on the amount of code I've had to change, I'm worried I've broken something. But, you know, every day's a school day and this has taught me a LOT
+* Enhancement: Look, I know I keep moving it but the plugin settings really shouldn't be anywhere other than under the Settings menu. So I've moved it back there
+* Enhancement: Added native lazy loading to the videos. I'll maybe look to add it to the thumbnails at a later time - does anybody want that?
+* Enhancement: I've improved the cache key generation. But, what this does mean, is that updating will cause all your YouTube Embed caches to clear. All your cache are belong to us 
+* Enhancement: Clarified the API sign-up process in the README
 
 = 5.1.1 =
 * Enhancement: Added extra plugin meta
@@ -543,5 +561,5 @@ Before reporting it please bear in mind that this plugin uses the standard YouTu
 
 == Upgrade Notice ==
 
-= 5.1.1 =
-* Whilst we'd holed up at home, it's bug fix time!
+= 5.2 =
+* Native lazy loading is a go! And lots of code quality tweaks that you won't notice unless you crack open the source code...
