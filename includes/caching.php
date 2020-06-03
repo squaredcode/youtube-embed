@@ -1,50 +1,48 @@
 <?php
 /**
-* Transient Functions
-*
-* Functions to save cache data and housekeep it
-*
-* @package	youtube-embed
-*/
+ * Transient Functions
+ *
+ * Functions to save cache data and housekeep it
+ *
+ * @package youtube-embed
+ */
 
 /**
-* Save a transient
-*
-* Generate a transient name and save it
-*
-* @since	5.0
-*
-* @param	string	$name	The name of the transient
-* @param	string	$data	The data to store
-* @param	string	$cache	How long to cache the data for
-* @param	string	$hash	Whether to hash the name (true or false)
-* @return	string			True or false, indicating success
-*/
-
+ * Save a transient
+ *
+ * Generate a transient name and save it
+ *
+ * @param  string $name     The name of the transient.
+ * @param  string $data     The data to store.
+ * @param  string $cache    How long to cache the data for.
+ * @param  string $hash     Whether to hash the name (true or false).
+ * @return string           True or false, indicating success.
+ */
 function ye_set_transient( $name, $data, $cache, $hash = false ) {
 
-	if ( $hash ) { $name = hash( 'ripemd128', $name ); }
+	if ( $hash ) {
+		$name = hash( 'ripemd128', $name );
+	}
 
-	$result = set_transient( 'youtubeembed_' . $name, $data, $cache);
+	$result = set_transient( 'youtubeembed_' . $name, $data, $cache );
 
 	return $result;
 }
 
 /**
-* Get a transient
-*
-* Generate a transient name and fetch it
-*
-* @since	5.0
-*
-* @param	string	$name	The name of the transient
-* @param	string	$hash	Whether to hash the name (true or false)
-* @return	string			The transient result or false, if failed
-*/
-
+ * Get a transient
+ *
+ * Generate a transient name and fetch it
+ *
+ * @param  string $name   The name of the transient.
+ * @param  string $hash   Whether to hash the name (true or false).
+ * @return string         The transient result or false, if failed.
+ */
 function ye_get_transient( $name, $hash = false ) {
 
-	if ( $hash ) { $name = hash( 'ripemd128', $name ); }
+	if ( $hash ) {
+		$name = hash( 'ripemd128', $name );
+	}
 
 	$result = get_transient( 'youtubeembed_' . $name );
 
@@ -52,30 +50,24 @@ function ye_get_transient( $name, $hash = false ) {
 }
 
 /**
-* Set up the scheduler
-*
-* Set up the scheduler for midnight to run the housekeeping
-*
-* @since	5.0
-*/
-
+ * Set up the scheduler
+ *
+ * Set up the scheduler for midnight to run the housekeeping
+ */
 function ye_set_up_scheduler() {
 
-	if ( !wp_next_scheduled( 'housekeep_ye_transients' ) ) {
-		wp_schedule_event( strtotime( '00:00' ) , 'daily', 'housekeep_ye_transients' );
+	if ( ! wp_next_scheduled( 'housekeep_ye_transients' ) ) {
+		wp_schedule_event( strtotime( '00:00' ), 'daily', 'housekeep_ye_transients' );
 	}
 }
 
 add_action( 'init', 'ye_set_up_scheduler' );
 
 /**
-* Housekeep the transients
-*
-* Remove any expired transients, relevant to this plugin
-*
-* @since	5.0
-*/
-
+ * Housekeep the transients
+ *
+ * Remove any expired transients, relevant to this plugin
+ */
 function ye_housekeep_transients() {
 
 	$sql = "
@@ -96,9 +88,7 @@ function ye_housekeep_transients() {
 		AND b.option_value < UNIX_TIMESTAMP()
 	";
 
-	$wpdb -> query( $sql );
-
-	return;
+	$wpdb->query( $sql );
 }
 
 add_action( 'ye_housekeep_transients', 'ye_clean_transients' );
