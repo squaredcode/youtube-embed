@@ -25,4 +25,4 @@ Features include...
 * [Andesch tips on WordPress plugins!](http://andershagstrom.se/andesch-tipsar-om-wordpress-plugins/ "Andesch tipsar om WordPress-plugins!") - Anders
 * [Critical Mass](http://www.bikinginmemphis.com/2011/03/26/critical-mass/ "Critical Mass") - Biking in Memphis
 
-<p align="right"><a href="https://wordpress.org/plugins/youtube-embed/"><img src="https://img.shields.io/wordpress/plugin/dt/youtube-embed?label=wp.org%20downloads&style=for-the-badge"><img src="https://img.shields.io/wordpress/plugin/stars/youtube-embed?style=for-the-badge"></a></p>
+<p align="right"><a href="https://wordpress.org/plugins/youtube-embed/"><img src="https://img.shields.io/wordpress/plugin/dt/youtube-embed?label=wp.org%20downloads&style=for-the-badge">&nbsp;<img src="https://img.shields.io/wordpress/plugin/stars/youtube-embed?style=for-the-badge"></a></p>
