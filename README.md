@@ -24,3 +24,5 @@ Features include...
 * [New Technology Finds The Most Buzzed-About Parts Of Videos](http://www.socialtimes.com/2011/03/new-technology-finds-the-most-buzzed-about-parts-of-videos-interview/ "New Technology Finds The Most Buzzed-About Parts Of Videos") - SocialTimes
 * [Andesch tips on WordPress plugins!](http://andershagstrom.se/andesch-tipsar-om-wordpress-plugins/ "Andesch tipsar om WordPress-plugins!") - Anders
 * [Critical Mass](http://www.bikinginmemphis.com/2011/03/26/critical-mass/ "Critical Mass") - Biking in Memphis
+
+<p align="right"><a href="https://wordpress.org/plugins/youtube-embed/"><img src="https://img.shields.io/wordpress/plugin/dt/youtube-embed?label=wp.org%20downloads&style=for-the-badge"></a></p>
