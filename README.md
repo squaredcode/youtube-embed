@@ -1,6 +1,6 @@
 # YouTube Embed
 
-**Version 5 is here! Now with API access to further improve the rich metadata but also the output caching has returned to make this plugin the fasted method to embed YouTube videos around!**
+<img src="https://ps.w.org/youtube-embed/assets/icon-128x128.png" align="left">**Version 5 is here! Now with API access to further improve the rich metadata but also the output caching has returned to make this plugin the fasted method to embed YouTube videos around!**
 
 YouTube Embed is an incredibly fast, simple, yet powerful, method of embedding YouTube videos into your WordPress site.
 
@@ -18,6 +18,8 @@ Features include...
 * [iFrame Resizer](https://github.com/davidjbradshaw/iframe-resizer "iFrame Resizer") and [FitVids.js](https://github.com/davatron5000/FitVids.js "FitVids.js") supported to improve content resizing
 * Works "out of the box" with 4K, 60FPS and Chromecast - stream your embedded videos to your TV!
 
+Iconography is courtesy of the very talented [Janki Rathod](https://www.fiverr.com/jankirathore) ♥️
+
 ### Reviews & Mentions
 
 * [Your YouTube Plugin is fantastic-it just saved my life on this site. Thank you!](https://twitter.com/AaronWatters/status/237957701605404672?uid=16257815&iid=am-130280753913455685118891763&nid=4+248 "Twitter - Aaron Watters") - Sonic Clamp
@@ -25,4 +27,4 @@ Features include...
 * [Andesch tips on WordPress plugins!](http://andershagstrom.se/andesch-tipsar-om-wordpress-plugins/ "Andesch tipsar om WordPress-plugins!") - Anders
 * [Critical Mass](http://www.bikinginmemphis.com/2011/03/26/critical-mass/ "Critical Mass") - Biking in Memphis
 
-<p align="right"><a href="https://wordpress.org/plugins/youtube-embed/"><img src="https://img.shields.io/wordpress/plugin/dt/youtube-embed?label=wp.org%20downloads&style=for-the-badge">&nbsp;<img src="https://img.shields.io/wordpress/plugin/stars/youtube-embed?style=for-the-badge"></a></p>
+<p align="right"><a href="https://wordpress.org/plugins/youtube-embed/"><img src="https://img.shields.io/wordpress/plugin/dt/youtube-embed?label=wp.org%20downloads&style=for-the-badge">&nbsp;<img src="https://img.shields.io/wordpress/plugin/stars/youtube-embed?color=orange&style=for-the-badge"></a></p>

@@ -3,13 +3,13 @@ Contributors: dartiss
 Donate link: https://artiss.blog/donate
 Tags: embed, insert, video, youtube
 Requires at least: 4.6
-Tested up to: 5.4
+Tested up to: 5.6
 Requires PHP: 5.3
 Stable tag: 5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-An incredibly fast, simple, yet powerful, method of embedding YouTube videos into your WordPress site.
+🎥 An incredibly fast, simple, yet powerful, method of embedding YouTube videos into your WordPress site.
 
 == Description ==
 
@@ -30,7 +30,9 @@ Key features include...
 * Works "out of the box" with 4K, 60FPS and Chromecast - stream your embedded videos to your TV!
 * And much, much more!
 
-Please visit the [Github page](https://github.com/dartiss/youtube-embed "Github") for the latest code development, planned enhancements and known issues.
+Iconography is courtesy of the very talented [Janki Rathod](https://www.fiverr.com/jankirathore) ♥️
+
+👉 Please visit the [Github page](https://github.com/dartiss/youtube-embe "Github") for the latest code development, planned enhancements and known issues 👈
 
 == 🚦 Getting Started ==
 
@@ -324,7 +326,7 @@ Before reporting it please bear in mind that this plugin uses the standard YouTu
 
 == Changelog ==
 
-🔢 [Learn more about my version numbering methodology](https://artiss.blog/2016/09/wordpress-plugin-versioning/ "WordPress Plugin Versioning")
+I use semantic versioning, with the first release being 1.0.
 
 = 5.2 =
 * Enhancement: What have I been doing during the pandemic? Picking through this code and resolving coding standards. Sigh. There's a LOT. Not all are done but will be in future updates but, for now, the majority are. Based on the amount of code I've had to change, I'm worried I've broken something. But, you know, every day's a school day and this has taught me a LOT
