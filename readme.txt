@@ -3,7 +3,7 @@ Contributors: dartiss
 Donate link: https://artiss.blog/donate
 Tags: embed, insert, video, youtube
 Requires at least: 4.6
-Tested up to: 5.6
+Tested up to: 5.7
 Requires PHP: 5.3
 Stable tag: 5.2
 License: GPLv2 or later
