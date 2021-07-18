@@ -5,7 +5,7 @@ Tags: embed, insert, video, youtube
 Requires at least: 4.6
 Tested up to: 5.8
 Requires PHP: 5.3
-Stable tag: 5.2.1
+Stable tag: 5.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -328,6 +328,9 @@ Before reporting it please bear in mind that this plugin uses the standard YouTu
 
 I use semantic versioning, with the first release being 1.0.
 
+= 5.2.2 =
+* Enhancement: A second attempt to fix that pesky vulnerability. Hopefully, all should now be well
+
 = 5.2.1 =
 * Enhancement: Fixed a security vulnerability where the shortcode attributes not being escaped/validated. Thanks to [apple502j](https://github.com/apple502j) for reporting this, via [WPScan](http://wpscan.com/)
 
@@ -566,5 +569,5 @@ I use semantic versioning, with the first release being 1.0.
 
 == Upgrade Notice ==
 
-= 5.2.1 =
+= 5.2.2 =
 * A security vulnerability in the shortcode attributes has been fixed. You can breathe easy once more
