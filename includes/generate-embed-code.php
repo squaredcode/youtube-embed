@@ -94,7 +94,7 @@ function ye_generate_youtube_code( $array ) {
 	$playlist_ids = '';
 	$embed_type   = '';
 
-	if ( ( 0 == $user ) && ( 0 == $search ) ) {
+	if ( ( 1 != $user ) && ( 1 != $search ) ) {
 
 		// Check if it's a list.
 
@@ -226,7 +226,7 @@ function ye_generate_youtube_code( $array ) {
 
 	if ( is_feed() ) {
 		$result = '';
-		if ( ( '' != $playlist_ids ) || ( 0 != $user ) || ( 0 != $search ) ) {
+		if ( ( '' != $playlist_ids ) || ( 1 == $user ) || ( 1 == $search ) ) {
 			$result .= '<p>' . __( 'A video list cannot be viewed within this feed - please view the original content', 'youtube-embed' ) . '.</p>' . $newline;
 		} else {
 			$youtube_url = 'https://www.youtube.com/watch?' . $embed_type . '=' . $id;
@@ -394,10 +394,10 @@ function ye_generate_youtube_code( $array ) {
 	if ( '' != $language ) {
 		$paras .= '&hl=' . $language;
 	}
-	if ( 0 != $start ) {
+	if ( 1 == $start ) {
 		$paras .= '&start=' . $start;
 	}
-	if ( 0 != $stop ) {
+	if ( 1 == $stop ) {
 		$paras .= '&end=' . $stop;
 	}
 
@@ -422,7 +422,7 @@ function ye_generate_youtube_code( $array ) {
 		$result .= ' ye-container';
 	}
 	$result .= '"';
-	if ( 0 != $metadata ) {
+	if ( 1 == $metadata ) {
 		$result .= ' itemprop="video" itemscope itemtype="https://schema.org/VideoObject"';
 	}
 	$result .= '>' . $newline;
@@ -433,7 +433,7 @@ function ye_generate_youtube_code( $array ) {
 
 	// Add Metadata.
 
-	if ( 0 != $metadata ) {
+	if ( 1 == $metadata ) {
 
 		if ( true === $api_data['restricted'] ) {
 			$friendly = 'false';
@@ -494,16 +494,16 @@ function ye_generate_youtube_code( $array ) {
 
 	// If a playlist, user or download build the ID appropriately.
 
-	if ( ( 'p' == $embed_type ) || ( 0 != $user ) || ( 0 != $search ) ) {
+	if ( ( 'p' == $embed_type ) || ( 1 == $user ) || ( 1 == $search ) ) {
 
 		$list_type = '';
 		if ( 'p' == $embed_type ) {
 			$list_type = 'playlist';
 		}
-		if ( 0 != $user ) {
+		if ( 1 == $user ) {
 			$list_type = 'user_uploads';
 		}
-		if ( 0 != $search ) {
+		if ( 1 == $search ) {
 			$list_type = 'search';
 			$id        = urlencode( $id );
 		}
@@ -603,7 +603,7 @@ function ye_validate_profile( $name, $number ) {
 		// Loop around, fetching in profile names.
 
 		$loop = 1;
-		while ( ( $loop <= $number ) && ( 0 == $profile ) ) {
+		while ( ( $loop <= $number ) && ( 1 != $profile ) ) {
 			if ( ( $name == $loop ) || ( 'Profile ' . $loop == $name ) ) {
 				$profile = $loop;
 			} else {
