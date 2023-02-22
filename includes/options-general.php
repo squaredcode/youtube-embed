@@ -144,6 +144,8 @@ $shortcode = ye_get_shortcode();
 
 <p><?php _e( 'These are the general settings for YouTube Embed. Please select <a href="admin.php?page=ye-profile-options">Profiles</a> for default embedding settings.', 'youtube-embed' ); ?></p>
 
+<div class="notice notice-info"><p style="font-weight: bold">NOTE: This plugin supports the ability to insert the standard YouTube embed and playlist players. However, if you need to embed a YouTube facade, livestream, or gallery, we recommend the <a href="https://www.embedplus.com/">EmbedPlus.com</a> plugin that's freely available <a href="https://wordpress.org/plugins/youtube-embed-plus/">here</a>. It's been around for many years and is highly trusted.</p></div>
+
 <form method="post" action="<?php echo get_bloginfo( 'wpurl' ) . '/wp-admin/admin.php?page=ye-general-options'; ?>">
 
 <table class="form-table">

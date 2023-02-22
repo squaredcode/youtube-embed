@@ -110,6 +110,8 @@ while ( $loop <= $general['list_no'] ) {
 <div class="wrap">
 <h1><?php _e( 'YouTube Embed Lists', 'youtube-embed' ); ?><span class="title-count"><?php echo $max_lists; ?></span></h1>
 
+<div class="notice notice-info"><p style="font-weight: bold">NOTE: This plugin supports the ability to insert the standard YouTube embed and playlist players. However, if you need to embed a YouTube facade, livestream, or gallery, we recommend the <a href="https://www.embedplus.com/">EmbedPlus.com</a> plugin that's freely available <a href="https://wordpress.org/plugins/youtube-embed-plus/">here</a>. It's been around for many years and is highly trusted.</p></div>
+
 <?php
 
 // Output any messages.
