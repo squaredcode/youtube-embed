@@ -5,7 +5,7 @@ Tags: embed, insert, video, youtube
 Requires at least: 4.6
 Tested up to: 6.1
 Requires PHP: 7.4
-Stable tag: 5.2.3
+Stable tag: 5.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,6 +14,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 == Description ==
 
 YouTube Embed is an incredibly fast, simple, yet powerful, method of embedding YouTube videos into your WordPress site.
+
+**NOTE: This plugin supports the ability to insert the standard YouTube embed and playlist players. However, if you need to embed a YouTube facade, livestream, or gallery, we recommend the [EmbedPlus.com](https://www.embedplus.com/) plugin that's freely available [here](https://wordpress.org/plugins/youtube-embed-plus/).  It's been around for many years and is highly trusted.**
 
 Key features include...
 
@@ -328,6 +330,9 @@ Before reporting it please bear in mind that this plugin uses the standard YouTu
 
 I use semantic versioning, with the first release being 1.0.
 
+= 5.2.4 =
+* Enhancement: As per [my support post](https://wordpress.org/support/topic/important-update-the-future-of-this-plugin-4/), I'm winding down work on this plugin. The best alternative is EmbedPlus, so I'm adding some links to the plugin to direct users to that
+
 = 5.2.3 =
 * Enhancement: Compatibility with PHP 8 and above
 
@@ -572,5 +577,5 @@ I use semantic versioning, with the first release being 1.0.
 
 == Upgrade Notice ==
 
-= 5.2.3 =
-* Compatibility with PHP 8 and above
+= 5.2.4 =
+* Added some links to the excellent EmbedPlus plugin, as an alternative to this one
