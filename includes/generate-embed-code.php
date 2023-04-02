@@ -49,7 +49,6 @@ function ye_generate_youtube_code( $array ) {
 		'template'    => '',
 		'color'       => '',
 		'responsive'  => '',
-		'search'      => '',
 		'user'        => '',
 		'modest'      => '',
 		'playsinline' => '',
@@ -64,7 +63,6 @@ function ye_generate_youtube_code( $array ) {
 
 	// Initialisation.
 
-	$start_time     = microtime( true );
 	$newline        = "\n";
 	$tab            = "\t";
 	$cache_suppress = false;
@@ -88,13 +86,13 @@ function ye_generate_youtube_code( $array ) {
 	}
 	$options = ye_get_profile( $profile );
 
-	// If a user look-up or search has been requested, miss out looking up list details and
+	// If a user look-up has been requested, miss out looking up list details and
 	// simple assign it as an IFRAME video.
 
 	$playlist_ids = '';
 	$embed_type   = '';
 
-	if ( ( 1 != $user ) && ( 1 != $search ) ) {
+	if ( 1 != $user ) {
 
 		// Check if it's a list.
 
@@ -203,7 +201,6 @@ function ye_generate_youtube_code( $array ) {
 			'thumbnail'       => $general['thumbnail'],
 			'privacy'         => $general['privacy'],
 			'frameborder'     => $general['frameborder'],
-			'debug'           => $general['debug'],
 			'script'          => $general['script'],
 			'force_list_type' => $general['force_list_type'],
 		);
@@ -226,7 +223,7 @@ function ye_generate_youtube_code( $array ) {
 
 	if ( is_feed() ) {
 		$result = '';
-		if ( ( '' != $playlist_ids ) || ( 1 == $user ) || ( 1 == $search ) ) {
+		if ( ( '' != $playlist_ids ) || ( 1 == $user ) ) {
 			$result .= '<p>' . __( 'A video list cannot be viewed within this feed - please view the original content', 'youtube-embed' ) . '.</p>' . $newline;
 		} else {
 			$youtube_url = 'https://www.youtube.com/watch?' . $embed_type . '=' . $id;
@@ -319,7 +316,6 @@ function ye_generate_youtube_code( $array ) {
 	// And for those not passed, simply assign the defaults to variables.
 
 	$metadata = $general['metadata'];
-	$debug    = $general['debug'];
 	$privacy  = $general['privacy'];
 
 	if ( '' == $start ) {
@@ -394,10 +390,10 @@ function ye_generate_youtube_code( $array ) {
 	if ( '' != $language ) {
 		$paras .= '&hl=' . $language;
 	}
-	if ( 1 == $start ) {
+	if ( 0 != $start ) {
 		$paras .= '&start=' . $start;
 	}
-	if ( 1 == $stop ) {
+	if ( 0 != $stop ) {
 		$paras .= '&end=' . $stop;
 	}
 
@@ -494,7 +490,7 @@ function ye_generate_youtube_code( $array ) {
 
 	// If a playlist, user or download build the ID appropriately.
 
-	if ( ( 'p' == $embed_type ) || ( 1 == $user ) || ( 1 == $search ) ) {
+	if ( ( 'p' == $embed_type ) || ( 1 == $user ) ) {
 
 		$list_type = '';
 		if ( 'p' == $embed_type ) {
@@ -502,10 +498,6 @@ function ye_generate_youtube_code( $array ) {
 		}
 		if ( 1 == $user ) {
 			$list_type = 'user_uploads';
-		}
-		if ( 1 == $search ) {
-			$list_type = 'search';
-			$id        = urlencode( $id );
 		}
 
 		$id_paras = '?listType=' . $list_type . '&list=';
@@ -559,14 +551,6 @@ function ye_generate_youtube_code( $array ) {
 
 	if ( ( 1 == $options['download'] ) && ( 'v' == $embed_type ) ) {
 		$result .= '<div style="' . $options['download_style'] . '" class="aye_download">' . $newline . $tab . '<a href="' . ye_generate_download_code( $id ) . '">' . $options['download_text'] . '</a>' . $newline . '</div>' . $newline;
-	}
-
-	// Now add a commented header and trailer.
-
-	if ( 1 == $debug ) {
-		$result  = '<!-- YouTube Embed v' . YOUTUBE_EMBED_VERSION . ' -->' . $newline . $result;
-		$runtime = round( microtime( true ) - $start_time, 5 );
-		$result .= '<!-- End of YouTube Embed code. Generated in ' . $runtime . ' seconds -->' . $newline;
 	}
 
 	$result = $newline . $result;

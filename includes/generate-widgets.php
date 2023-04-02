@@ -63,11 +63,6 @@ class YouTubeEmbedWidget extends WP_Widget {
 
 		// Set the correct.
 
-		if ( 's' == $instance['id_type'] ) {
-			$search = 1;
-		} else {
-			$search = '';
-		}
 		if ( 'u' == $instance['id_type'] ) {
 			$user = 1;
 		} else {
@@ -82,7 +77,6 @@ class YouTubeEmbedWidget extends WP_Widget {
 			'stop'       => $instance['start'],
 			'profile'    => $instance['profile'],
 			'list_style' => $instance['list'],
-			'search'     => $search,
 			'user'       => $user,
 		);
 
@@ -166,10 +160,6 @@ class YouTubeEmbedWidget extends WP_Widget {
 			echo " selected='selected'";
 		}
 		echo '>' . __( 'Video or Playlist', 'youtube-embed' ) . '</option><option value="s"';
-		if ( 's' == esc_attr( $instance['id_type'] ) ) {
-			echo " selected='selected'";
-		}
-		echo '>' . __( 'Search', 'youtube-embed' ) . '</option><option value="u"';
 		if ( 'u' == esc_attr( $instance['id_type'] ) ) {
 			echo " selected='selected'";
 		}

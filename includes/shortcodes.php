@@ -94,7 +94,6 @@ function ye_video_shortcode( $paras = '', $content = '', $callback = '', $alt_sh
 				'fs'             => '',
 				'cc_load_policy' => '',
 				'iv_load_policy' => '',
-				'showinfo'       => '',
 				'youtubeurl'     => '',
 				'template'       => '',
 				'list'           => '',
@@ -103,7 +102,6 @@ function ye_video_shortcode( $paras = '', $content = '', $callback = '', $alt_sh
 				'responsive'     => '',
 				'h'              => '',
 				'w'              => '',
-				'search'         => '',
 				'user'           => '',
 				'modest'         => '',
 				'playsinline'    => '',
@@ -153,9 +151,6 @@ function ye_video_shortcode( $paras = '', $content = '', $callback = '', $alt_sh
 	}
 	if ( ( '' != $iv_load_policy ) && ( '' == $annotation ) ) {
 		$annotation = $iv_load_policy;
-	}
-	if ( ( '' != $showinfo ) && ( '' == $info ) ) {
-		$info = $showinfo;
 	}
 
 	// If ID was not passed in the content and the first parameter is set, assume that to be the ID.
@@ -208,7 +203,6 @@ function ye_video_shortcode( $paras = '', $content = '', $callback = '', $alt_sh
 		'template'    => esc_attr( $template ),
 		'color'       => esc_attr( $color ),
 		'responsive'  => ye_convert( esc_attr( $responsive ) ),
-		'search'      => ye_convert( esc_attr( $search ) ),
 		'user'        => ye_convert( esc_attr( $user ) ),
 		'modest'      => ye_convert( esc_attr( $modest ) ),
 		'playsinline' => ye_convert( esc_attr( $playsinline ) ),
