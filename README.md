@@ -7,7 +7,7 @@
 Features include...
 
 * Build your own playlists and play them back however you want
-* Automatically generate playlists based on user name or search text
+* Automatically generate playlists based on user name
 * Create multiple profiles - use them for different videos to get the exact style that you want
 * Dynamic video sizing for responsive sites
 * Housekept caching keeps the code generation nimble and your database tables slimline

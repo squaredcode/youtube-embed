@@ -741,7 +741,7 @@ if ( '2' == $options['controls'] ) {
 <tr>
 <th scope="row"><?php _e( 'Disable Keyboard', 'youtube-embed' ); ?></th>
 <td><label for="youtube_embed_disablekb"><input type="checkbox" name="youtube_embed_disablekb" value="1" <?php checked( $options['disablekb'], '1' ); ?>/>
-<?php _e( 'Disable the player keyboard controls', 'youtube-embed' ); ?></label></td>
+<?php _e( 'Turn off the player keyboard controls', 'youtube-embed' ); ?></label></td>
 </tr>
 
 <!-- Fullscreen -->

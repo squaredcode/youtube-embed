@@ -3,9 +3,9 @@ Contributors: dartiss
 Donate link: https://artiss.blog/donate
 Tags: embed, insert, video, youtube
 Requires at least: 4.6
-Tested up to: 6.1
+Tested up to: 6.2
 Requires PHP: 7.4
-Stable tag: 5.2.4
+Stable tag: 5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,7 @@ YouTube Embed is an incredibly fast, simple, yet powerful, method of embedding Y
 Key features include...
 
 * Build your own playlists and play them back however you want
-* Automatically generate playlists based on user name or search text
+* Automatically generate playlists based on user name
 * Create multiple profiles - use them for different videos to get the exact style that you want
 * Dynamic video sizing for responsive sites
 * Housekept caching keeps the code generation nimble and your database tables slimline
@@ -81,7 +81,7 @@ Which options are available depends upon the users's set-up (for example, whethe
 * **cc_lang** - Closed captions language. Select a [ISO 639-1 two-letter language code](http://www.loc.gov/standards/iso639-2/php/code_list.php") or leave blank for the default
 * **color** - white or red, the color of the progress bar (see the FAQ about having a white progress bar with the light theme)
 * **controls** - 0, 1 or 2, this decides whether the controls should display and when the Flash will load. A value of 0 will not show the controls but 1 or 2 will. A value of 2 will load Flash once the user initiates playback - otherwise it's loaded straight away.
-* **disablekb** - yes or no, disable keyboard controls
+* **disablekb** - yes or no, switch off keyboard controls
 * **fullscreen** - yes or no, this will add the fullscreen button to the toolbar
 * **height** - the video height, in pixels
 * **language** - The interface language. The parameter value is an [ISO 639-1 two-letter language code](http://www.loc.gov/standards/iso639-2/php/code_list.php") or a fully specified locale. Leave blank for the default
@@ -93,7 +93,6 @@ Which options are available depends upon the users's set-up (for example, whethe
 * **ratio** - allows you to define a window ratio - specify just a height or width and the ratio will calculate the missing dimension. Uses the format x:x, e.g. 4:3, 16:9
 * **related** - yes or no, show related videos
 * **responsive** - whether to use responsive output or not. When switched on the video will resize when your site does (i.e. responsive). If a video width is supplied this will be the maximum width, otherwise full width will be assumed. Height is ignored and will be worked out automatically.
-* **search** - yes or no, create a playlist based on a search word. The search word should be specified instead of a video ID. See "Automatically Generate Playlists" option for more details
 * **start** - a number of seconds from where to start the video playing
 * **stop** - this stops the video at a specific time, given in seconds
 * **style** - apply CSS elements directly to the video output
@@ -116,7 +115,7 @@ The new shortcode can also have its own default profile assigned to it (see the 
 
 Widgets can be easily added. In Administration simply click on the Widgets option under the Appearance menu. YouTube Embed will be one of the listed widgets. Drag it to the appropriate sidebar on the right hand side and then choose your video options - any that aren't specified are taken from your supplied profile. It's best to have a profile set-up specifically for widgets!
 
-If you wish to display an automatically generated playlist based on user name or search term, simply change the "ID Type" appropriately and then specify the name or search word(s) where the video ID would normally be entered.
+If you wish to display an automatically generated playlist based on user name, simply change the "ID Type" appropriately and then specify the name where the video ID would normally be entered.
 
 And that's it! You can use unlimited widgets, so you can add different videos to different sidebars.
 
@@ -168,9 +167,9 @@ An option within the general options screen allows you to change whether this pa
 
 == Automatically Generated Playlists ==
 
-YouTube includes options to automatically generate playlists based upon a user name or a search name.
+YouTube includes options to automatically generate playlists based upon a user name.
 
-To use, simply use the `user` or `search` parameter to switch the appropriate option on. Then, instead of a video ID or URL, you should specify either the user name or search word(s).
+To use, simply use the `user` parameter to switch the appropriate option on. Then, instead of a video ID or URL, you should specify the user name.
 
 == 📏 Third Party Resizing Scripts ==
 
@@ -302,7 +301,7 @@ This is a bug in Firefox. Short term, switch on SSL in the Profiles screen and i
 
 = The generated code does not cleanly validate =
 
-No, by default it doesn't but it works absolutely fine as it. However, if you really must cleanly validate against HTML5 or transitional XHTML then head into the YouTube Embed settings screen and you'll find an option to "Improve Validation". Tick this and Save and it should validate.... UNLESS you have the metadata option switched on, in which case it won't validate still (sorry, I'm a slave to Google on this one!). Switch that off though and you're 100%.
+No, by default it doesn't but it works absolutely fine as it. However, if you really must cleanly validate against HTML5 or transitional XHTML then head into the YouTube Embed settings screen and you'll find an option to "Improve Validation". Tick this and Save and it should validate.... UNLESS you have the metadata option switched on, in which case it won't validate still. Switch that off though and you're 100%.
 
 One thing to note - by switching on "Improve Validation" you'll extend the length of the URL line that's passed to YouTube. Please see the next FAQ to understand this better.
 
@@ -329,6 +328,14 @@ Before reporting it please bear in mind that this plugin uses the standard YouTu
 == Changelog ==
 
 I use semantic versioning, with the first release being 1.0.
+
+= 5.3 =
+* Enhancement: Added some new, shinier meta to the plugin file. It doesn't do anything other than make me look like a slightly more competent developer. Just
+* Maintenance: I retired the `showinfo` parameter some time ago but, like some poor cleaner, sweeping things under the bed, I left some remnants behind - I've now cleaned those up properly
+* Maintenance: Google has got rid of the search option. Boo. So, I've removed all the options for that. Sorry, but blame those people who "do no evil"
+* Maintenance: Removed the code that added debug output to your HTML. This way, your page output is slightly smaller. Small is mighty, don't forget!
+* Bug: The `start` and `stop` parameters had stopped working. I've fixed this oversight.
+* Bug: Fixed some escaping I was using - I was missing a parameter but, as it turned out, it was the wrong type to use anyway. So, corrected that.
 
 = 5.2.4 =
 * Enhancement: As per [my support post](https://wordpress.org/support/topic/important-update-the-future-of-this-plugin-4/), I'm winding down work on this plugin. The best alternative is EmbedPlus, so I'm adding some links to the plugin to direct users to that
@@ -577,5 +584,5 @@ I use semantic versioning, with the first release being 1.0.
 
 == Upgrade Notice ==
 
-= 5.2.4 =
-* Added some links to the excellent EmbedPlus plugin, as an alternative to this one
+= 5.3 =
+* Assorted bug fixes and maintenance work

@@ -72,11 +72,6 @@ if ( ( ! empty( $_POST ) ) && ( check_admin_referer( 'youtube-embed-general', 'y
 	} else {
 		$options['widgets'] = '';
 	}
-	if ( isset( $_POST['youtube_embed_debug'] ) ) {
-		$options['debug'] = sanitize_text_field( $_POST['youtube_embed_debug'] );
-	} else {
-		$options['debug'] = '';
-	}
 	if ( isset( $_POST['youtube_embed_prompt'] ) ) {
 		$options['prompt'] = sanitize_text_field( $_POST['youtube_embed_prompt'] );
 	} else {
@@ -472,14 +467,6 @@ if ( '2' == $options['privacy'] ) {
 </option>
 </select></label>
 <p class="description"><?php _e( 'Read more about <a href="http://donottrack.us/">Do Not Track</a>.', 'youtube-embed' ); ?></p></td>
-</tr>
-
-<!-- Show debug output -->
-
-<tr>
-<th scope="row"><?php _e( 'Show debug output', 'youtube-embed' ); ?></th>
-<td><label for="youtube_embed_debug"><input type="checkbox" name="youtube_embed_debug" value="1" <?php checked( $options['debug'], '1' ); ?>/>
-<?php _e( 'Show debug output as HTML comments', 'youtube-embed' ); ?></label></td>
 </tr>
 
 </table><hr><h3 class="title"><?php _e( 'Profile Demo Videos', 'youtube-embed' ); ?></h3><table class="form-table">

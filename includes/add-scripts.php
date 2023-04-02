@@ -156,11 +156,11 @@ function youtube_embed_add_to_head() {
 		$tab     = "\t";
 		$newline = "\n";
 
-		echo '<script type="text/javascript" src="' . esc_url( plugins_url( 'js/jquery.fitvids.js', dirname( __FILE__ ) ) ) . '"></script>' . wp_kses( $newline );
+		echo '<script type="text/javascript" src="' . esc_url( plugins_url( 'js/jquery.fitvids.js', dirname( __FILE__ ) ) ) . '"></script>' . esc_html( $newline );
 
-		echo '<script>' . wp_kses( $newline );
-		echo wp_kses( $tab ) . '$(".youtube-embed").fitVids();' . wp_kses( $newline );
-		echo '</script>' . wp_kses( $newline );
+		echo '<script>' . esc_html( $newline );
+		echo esc_attr( $tab ) . '$(".youtube-embed").fitVids();' . esc_html( $newline );
+		echo '</script>' . esc_html( $newline );
 
 	}
 

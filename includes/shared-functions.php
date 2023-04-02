@@ -255,15 +255,14 @@ function ye_set_general_defaults() {
 		'frameborder'     => 1,
 		'widgets'         => 0,
 		'menu_access'     => 'list_users',
-		'debug'           => 1,
 		'script'          => '',
 		'prompt'          => 1,
 		'force_list_type' => 0,
 		'api'             => '',
 		'api_cache'       => 7,
 		'video_cache'     => 24,
-		'standard_video'  => 'YA8lE3sswX0',
-		'playlist_video'  => 'PLQFhxUeNFfdLLVYP5qI7CVZeQmsT7aV0t',
+		'standard_video'  => 'QDdvXBqfrzM',
+		'playlist_video'  => 'PLyjnd7cJdfWCyIPfT-5-70STdAwqiOPQp',
 		'lazyload'        => 0,
 	);
 
