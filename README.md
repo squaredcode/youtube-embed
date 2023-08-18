@@ -1,6 +1,6 @@
 # YouTube Embed
 
-<img src="https://ps.w.org/youtube-embed/assets/icon-128x128.png" align="left">YouTube Embed is an incredibly fast, simple, yet powerful, method of embedding YouTube videos into your WordPress site.
+<img src="https://ps.w.org/youtube-embed/assets/icon-256x256.png" align="left">YouTube Embed is an incredibly fast, simple, yet powerful, method of embedding YouTube videos into your WordPress site.
 
 **NOTE: This plugin supports the ability to insert the standard YouTube embed and playlist players. However, if you need to embed a YouTube facade, livestream, or gallery, we recommend the [EmbedPlus.com](https://www.embedplus.com/) plugin that's freely available [here](https://wordpress.org/plugins/youtube-embed-plus/). It's been around for many years and is highly trusted.**
 
