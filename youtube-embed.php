@@ -3,17 +3,17 @@
  * YouTube Embed
  *
  * @package           youtube-embed
- * @author            David Artiss
+ * @author            YouTube Embed
  * @license           GPL-2.0-or-later
  *
  * Plugin Name:       YouTube Embed
  * Plugin URI:        https://wordpress.org/plugins/youtube-embed/
  * Description:       🎥 An incredibly fast, simple, yet powerful, method of embedding YouTube videos into your WordPress site.
- * Version:           5.3
+ * Version:           5.3.1
  * Requires at least: 4.6
  * Requires PHP:      7.4
- * Author:            David Artiss
- * Author URI:        https://artiss.blog
+ * Author:            YouTube Embed
+ * Author URI:        https://wordpress.org/support/users/squared/
  * Text Domain:       youtube-embed
  * License:           GPL v2 or later
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -26,7 +26,7 @@
  * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-define( 'YOUTUBE_EMBED_VERSION', '5.3' );
+define( 'YOUTUBE_EMBED_VERSION', '5.3.1' );
 
 $functions_dir = plugin_dir_path( __FILE__ ) . 'includes/';
 
