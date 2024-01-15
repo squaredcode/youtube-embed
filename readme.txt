@@ -1,11 +1,10 @@
 === YouTube Embed ===
-Contributors: dartiss
-Donate link: https://artiss.blog/donate
+Contributors: dartiss, squared
 Tags: embed, insert, video, youtube
 Requires at least: 4.6
-Tested up to: 6.3
+Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 5.3
+Stable tag: 5.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,9 +31,7 @@ Key features include...
 * Works "out of the box" with 4K, 60FPS and Chromecast - stream your embedded videos to your TV!
 * And much, much more!
 
-Iconography is courtesy of the very talented [Janki Rathod](https://www.fiverr.com/jankirathore) ♥️
-
-👉 Please visit the [Github page](https://github.com/dartiss/youtube-embe "Github") for the latest code development, planned enhancements and known issues 👈
+👉 Please visit the [Github page](https://github.com/squaredcode/youtube-embe "Github") for the latest code development, planned enhancements and known issues 👈
 
 == 🚦 Getting Started ==
 
@@ -307,7 +304,7 @@ One thing to note - by switching on "Improve Validation" you'll extend the lengt
 
 = I'm getting the error "The maximum URL length has been exceeded" when trying to view a video =
 
-When embedding a video a URL for YouTube is generated - this contains all the non-default parameters that you've specified and, if you've created a manual playlist, all of the video IDs. Unfortunately, URLs can only be 2000 characters in size. If this is exceeded you'll get the above error message when you try and view the video./Users/davidartiss/Documents/GitHub/youtube-embed/readme.txt
+When embedding a video a URL for YouTube is generated - this contains all the non-default parameters that you've specified and, if you've created a manual playlist, all of the video IDs. Unfortunately, URLs can only be 2000 characters in size. If this is exceeded you'll get the above error message when you try and view the video.
 
 The solution is to reduce this down by reducing down your playlist or, if you have the "Improve Validation" settings switched on, switching that back off.
 
@@ -328,6 +325,9 @@ Before reporting it please bear in mind that this plugin uses the standard YouTu
 == Changelog ==
 
 I use semantic versioning, with the first release being 1.0.
+
+= 5.3.1 =
+* Maintenance: Update made to plugin meta
 
 = 5.3 =
 * Enhancement: Added some new, shinier meta to the plugin file. It doesn't do anything other than make me look like a slightly more competent developer. Just
@@ -584,5 +584,5 @@ I use semantic versioning, with the first release being 1.0.
 
 == Upgrade Notice ==
 
-= 5.3 =
-* Assorted bug fixes and maintenance work
+= 5.3.1 =
+* Update plugin meta

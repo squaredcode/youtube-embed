@@ -47,13 +47,9 @@ function ye_set_plugin_meta( $links, $file ) {
 
 	if ( strpos( $file, 'youtube-embed.php' ) !== false ) {
 
-		$links = array_merge( $links, array( '<a href="https://github.com/dartiss/youtube-embed">' . __( 'Github', 'youtube-embed' ) . '</a>' ) );
+		$links = array_merge( $links, array( '<a href="https://github.com/squaredcode/youtube-embed">' . __( 'Github', 'youtube-embed' ) . '</a>' ) );
 
 		$links = array_merge( $links, array( '<a href="https://wordpress.org/support/plugin/youtube-embed">' . __( 'Support', 'youtube-embed' ) . '</a>' ) );
-
-		$links = array_merge( $links, array( '<a href="https://artiss.blog/donate">' . __( 'Donate', 'youtube-embed' ) . '</a>' ) );
-
-		$links = array_merge( $links, array( '<a href="https://wordpress.org/support/plugin/youtube-embed/reviews/#new-post">' . __( 'Write a Review', 'youtube-embed' ) . '&nbsp;⭐️⭐️⭐️⭐️⭐️</a>' ) );
 	}
 
 	return $links;
